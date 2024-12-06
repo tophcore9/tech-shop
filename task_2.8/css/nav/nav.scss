@@ -1,0 +1,47 @@
+.nav {
+    height: 100px;
+    width: 100%;
+
+    position: fixed;
+
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.nav-content {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-items {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-item {
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    transition: color 0.1s ease-out;
+    
+    &:hover {
+        color: #CC5520;
+    }
+}
+
+.nav-cart {
+    width: 20px;
+    height: 20px;
+    
+    background: url(../../images/icons/shopping-cart.svg);
+    transition: background-image 0.1s ease-out;
+    
+    &:hover {
+        background: url(../../images/icons/shopping-cart-active.svg);
+    }
+}
