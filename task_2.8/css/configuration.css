@@ -1,1 +1,11 @@
-/*# sourceMappingURL=configuration.css.map */
+body, html {
+  height: 100%;
+}
+
+.wrapper {
+  margin: auto;
+  height: 100%;
+  max-width: 1200px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}/*# sourceMappingURL=configuration.css.map */
