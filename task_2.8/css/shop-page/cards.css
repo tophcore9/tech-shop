@@ -1,0 +1,40 @@
+.shop-cards {
+  flex-basis: content;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  gap: 20px 55px;
+}
+
+.shop__card {
+  width: calc(50% - 28px);
+  border: 1px solid #F3F3F3;
+}
+
+.card__picture {
+  width: 100%;
+  max-height: 400px;
+}
+
+.card-info {
+  padding: 0 15px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card-info__rating {
+  display: flex;
+}
+
+.rating-star {
+  width: 16px;
+  height: 16px;
+  background: url(../../images/icons/rate-star.svg) no-repeat center;
+}
+
+.card-info__category {
+  font-size: 16px;
+  font-weight: 400;
+}/*# sourceMappingURL=cards.css.map */
