@@ -9,6 +9,9 @@
 }
 
 .shop__card {
+    max-height: 400px;
+    min-width: 275px;
+
     position: relative;
 
     width: calc(50% - 28px);
@@ -19,9 +22,9 @@
 
 .card__picture {
     width: 100%;
-    max-height: 400px;
+    max-height: 85%;
     
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .card-info {
@@ -32,14 +35,6 @@
 
     font-size: 18px;    
     font-weight: 700;
-}
-
-.card-info__name {
-
-}
-
-.card-info__price {
-
 }
 
 .card-info__rating {

@@ -8,6 +8,8 @@
 }
 
 .shop__card {
+  max-height: 400px;
+  min-width: 275px;
   position: relative;
   width: calc(50% - 28px);
   max-height: 300px;
@@ -16,9 +18,9 @@
 
 .card__picture {
   width: 100%;
-  max-height: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-height: 85%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .card-info {
