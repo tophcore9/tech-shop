@@ -13,6 +13,7 @@
 }
 
 .nav-items {
+  margin-right: 90px;
   display: flex;
   gap: 24px;
 }
