@@ -1,19 +1,24 @@
+@charset "UTF-8";
 .shop-cards {
-  flex-basis: content;
-  display: flex;
-  flex-flow: row wrap;
   width: 100%;
+  display: flex;
+  flex-basis: content;
+  flex-flow: row wrap;
   gap: 20px 55px;
 }
 
 .shop__card {
+  position: relative;
   width: calc(50% - 28px);
+  max-height: 300px;
   border: 1px solid #F3F3F3;
 }
 
 .card__picture {
   width: 100%;
   max-height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card-info {
@@ -35,6 +40,54 @@
 }
 
 .card-info__category {
+  color: #969595;
   font-size: 16px;
   font-weight: 400;
+}
+
+.add-card__checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #CC5520;
+  border: 2px solid #CC5520;
+  transition: transform 0.1s ease-out;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+.add-card__checkbox::after {
+  content: "Add";
+  font-size: 11px;
+  font-weight: 400;
+}
+.add-card__checkbox::before {
+  content: "+";
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.add-card__checkbox:hover {
+  cursor: pointer;
+}
+.add-card__checkbox:active {
+  transform: scale(0.9);
+}
+.add-card__checkbox:checked {
+  background-color: white;
+  color: #CC5520;
+}
+.add-card__checkbox:checked::after {
+  content: "Remove";
+}
+.add-card__checkbox:checked::before {
+  content: "−";
 }/*# sourceMappingURL=cards.css.map */

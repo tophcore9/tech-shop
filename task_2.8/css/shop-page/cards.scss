@@ -1,20 +1,27 @@
 .shop-cards {
-    flex-basis: content;
-    display: flex;
-    flex-flow: row wrap;
     width: 100%;
+
+    display: flex;
+
+    flex-basis: content;
+    flex-flow: row wrap;
     gap: 20px 55px;
 }
 
 .shop__card {
+    position: relative;
+
     width: calc(50% - 28px);
-    // box-shadow: 2px 2px 10px 0 black;
+    max-height: 300px;
+
     border: 1px solid #F3F3F3;
 }
 
 .card__picture {
     width: 100%;
     max-height: 400px;
+    
+    object-fit: cover;
 }
 
 .card-info {
@@ -47,6 +54,59 @@
 }
 
 .card-info__category {
+    color: #969595;
     font-size: 16px;
     font-weight: 400;
+}
+
+.add-card__checkbox {
+    appearance: none;
+    
+    width: 55px;
+    height: 55px;
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #CC5520;
+    border: 2px solid #CC5520;
+    transition: transform 0.1s ease-out;
+
+    font-family: 'Montserrat', sans-serif;    
+    color: white;
+    
+    &::after {
+        content: 'Add';
+        font-size: 11px;
+        font-weight: 400;
+    }
+    
+    &::before {
+        content: '+';
+        font-size: 33px;
+        font-weight: 600;
+        line-height: 20px;
+    }
+    
+    &:hover {
+        cursor: pointer;
+    }
+    
+    &:active {
+        transform: scale(0.9);
+    }
+    
+    &:checked {
+        background-color: white;
+        color: #CC5520;
+        
+        &::after {content: 'Remove';}
+        &::before {content: '−';}
+    }
 }
