@@ -4,4 +4,134 @@
 }
 
 /* FILTERS PART */
+.shop-content {
+  padding-bottom: 200px;
+}
+
+.filter-menu {
+  max-width: 200px;
+}
+
+.search {
+  margin-bottom: 55px;
+  position: relative;
+}
+
+.search__input {
+  padding-left: 16px;
+  width: 100%;
+  height: 55px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.search__button {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 11px);
+  border: 0;
+  background: url(../../images/icons/search.svg);
+  background-size: cover;
+}
+
+.topics {
+  margin-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__title {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.topics__item {
+  width: 100%;
+  height: 55px;
+}
+
+.topic-item__label {
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.topic-item__label:hover {
+  cursor: pointer;
+}
+
+.topic-item__radio {
+  display: none;
+}
+.topic-item__radio:checked + label {
+  background-color: #CC5520;
+  color: white;
+}
+
+.prise-filter {
+  width: 100%;
+}
+
+.prise__range {
+  margin-bottom: 15px;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.prise__range:hover {
+  cursor: pointer;
+}
+.prise__range::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 30px;
+  background-color: #CC5520;
+}
+.prise__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 24px;
+  height: 24px;
+  background-color: #CC5520;
+  border-radius: 50%;
+  transform: translateY(calc(-50% + 4px));
+}
+.prise__range::-moz-range-track {
+  height: 8px;
+  border-radius: 30px;
+  background-color: #CC5520;
+}
+.prise__range::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  width: 24px;
+  height: 24px;
+  background-color: #CC5520;
+  border-radius: 50%;
+}
+.prise__range::-ms-track {
+  height: 8px;
+  border-radius: 30px;
+  background-color: #CC5520;
+}
+.prise__range::-ms-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background-color: #CC5520;
+  border-radius: 50%;
+}
+
+.prise__value {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+}
+
 /* CARDS PART *//*# sourceMappingURL=shop.css.map */

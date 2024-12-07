@@ -41,17 +41,45 @@
                         <button class="search__button"></button>
                     </div>
                     <div class="topics">
-                        <h3 class="topics__title">Topic</h3>
-                        <input class="topics__item" type="radio" name="topic" value="All">
-                        <input class="topics__item" type="radio" name="topic" value="Smartphones">
-                        <input class="topics__item" type="radio" name="topic" value="Desktops">
-                        <input class="topics__item" type="radio" name="topic" value="Watches">
-                        <input class="topics__item" type="radio" name="topic" value="Earphones">
-                        <input class="topics__item" type="radio" name="topic" value="Keyboards">
-                        <input class="topics__item" type="radio" name="topic" value="Mouses">
+                        <h3 class="filter__title">Topic</h3>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" name="topic" id="topic-all" value="All" checked>
+                            <label class="topic-item__label" for="topic-all">All</label>
+                        </div>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" id="topic-smartphones" name="topic" value="Smartphones">
+                            <label class="topic-item__label" for="topic-smartphones">Smartphones</label>
+                        </div>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" id="topic-desktops" name="topic" value="Desktops">
+                            <label class="topic-item__label" for="topic-desktops">Desktops</label>
+                        </div>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" id="topic-watches" name="topic" value="Watches">
+                            <label class="topic-item__label" for="topic-watches">Watches</label>
+                        </div>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" id="topic-earphones" name="topic" value="Earphones">
+                            <label class="topic-item__label" for="topic-earphones">Earphones</label>
+                        </div>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" id="topic-keyboards" name="topic" value="Keyboards">
+                            <label class="topic-item__label" for="topic-keyboards">Keyboards</label>
+                        </div>
+
+                        <div class="topics__item">
+                            <input class="topic-item__radio" type="radio" id="topic-mouses" name="topic" value="Mouses">
+                            <label class="topic-item__label" for="topic-mouses">Mouses</label>
+                        </div>
                     </div>
                     <div class="prise-filter">
-                        <h3 class="prise__title">Prise</h3>
+                        <h3 class="filter__title">Prise</h3>
                         <input class="prise__range" type="range" min="0" max="100" value="0">
                         <p class="prise__value">Value: $0</p>
                     </div>
