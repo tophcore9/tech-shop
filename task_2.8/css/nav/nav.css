@@ -1,8 +1,8 @@
 .nav {
   height: 100px;
   width: 100%;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.45);
+  position: static;
+  background-color: white;
 }
 
 .nav-content {
@@ -23,7 +23,7 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: white;
+  color: black;
   transition: color 0.1s ease-out;
 }
 .nav-item:hover {
@@ -38,7 +38,7 @@
 .nav-cart {
   width: 20px;
   height: 20px;
-  background: url(../../images/icons/shopping-cart.svg);
+  background: url(../../images/icons/shopping-cart-black.svg);
   transition: background-image 0.1s ease-out;
 }
 .nav-cart:hover {
