@@ -26,17 +26,17 @@
 .laptop-block {
   grid-column: 2/3;
   grid-row: 1/3;
-  background: #F4F4F4 url(../../images/laptop.png) no-repeat 95% 95%;
+  background: #F4F4F4 url(../../../images/laptop.png) no-repeat 95% 95%;
   background-size: 80%;
 }
 
 .phone-block {
-  background: #F4F4F4 url(../../images/phone.png) no-repeat 95%;
+  background: #F4F4F4 url(../../../images/phone.png) no-repeat 95%;
   background-size: 25%;
 }
 
 .watches-block {
-  background: #F4F4F4 url(../../images/watches.png) no-repeat 95%;
+  background: #F4F4F4 url(../../../images/watches.png) no-repeat 95%;
   background-size: 25%;
 }
 
