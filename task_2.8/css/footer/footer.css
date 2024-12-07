@@ -45,6 +45,10 @@
   margin-top: 15px;
 }
 
+.list-item__link {
+  border-bottom: 1px solid #191919;
+  transition: border-bottom 0.2s ease-out;
+}
 .list-item__link:hover {
   border-bottom: 1px solid white;
 }
