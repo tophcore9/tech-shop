@@ -5,6 +5,7 @@
     height: 100%;
 
     visibility: hidden;
+    overflow-y: scroll;
 
     position: fixed;
     top: 0;
@@ -67,14 +68,6 @@
     line-height: 60px;
 }
 
-.cart-menu__items {
-
-}
-
-.cart-menu__item {
-    
-}
-
 .cart-menu__total {
     margin-bottom: 40px;
 
@@ -103,4 +96,104 @@
         background-color: transparent;
         color: #CC5520;
     }
+}
+
+
+
+/* CARDS */
+
+.cart-menu__items {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-menu__item {
+    margin-bottom: 20px;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item__left {
+    max-width: 60%;
+    max-height: 200px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item__picture {
+    max-width: 210px;
+    max-height: 80%;
+    object-fit: cover;
+}
+
+.cart-item__info {
+    display: flex;
+    justify-content: space-between;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cart-item__name {
+    font-weight: 700;
+}
+
+.cart-item__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cart-item__control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-button {
+    background-color: transparent;
+    border: 0;
+    
+    color: #8C8C8C;
+    font-family: 'Roboto', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.cart-item__quantity {
+    width: 62px;
+    height: 40px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #CC5520;
+    border-radius: 45px;
+    
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.cart-item__remove-button {
+    height: 28px;
+    padding-right: 35px;
+
+    background: url(../../images/icons/remove-item.svg) no-repeat right center;
+    background-size: contain;
+    border: 0;
+    
+    color: #8C8C8C;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
 }
