@@ -79,6 +79,7 @@
 }
 .add-card__checkbox:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 .add-card__checkbox:active {
   transform: scale(0.9);

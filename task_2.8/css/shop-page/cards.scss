@@ -73,7 +73,7 @@
     border: 2px solid #CC5520;
     transition: transform 0.1s ease-out;
 
-    font-family: 'Montserrat', sans-serif;    
+    font-family: 'Montserrat', sans-serif;
     color: white;
     
     &::after {
@@ -91,6 +91,7 @@
     
     &:hover {
         cursor: pointer;
+        transform: scale(1.1);
     }
     
     &:active {
