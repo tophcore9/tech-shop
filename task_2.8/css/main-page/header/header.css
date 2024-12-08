@@ -33,6 +33,7 @@
 
 .header-preview__title {
   margin-bottom: 40px;
+  max-width: 540px;
   font-family: "Playfair Display";
   font-size: 80px;
   font-weight: 700;
@@ -40,6 +41,7 @@
 }
 
 .header-preview__description {
+  max-width: 500px;
   font-size: 20px;
   line-height: 30px;
 }/*# sourceMappingURL=header.css.map */
