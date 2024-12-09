@@ -6,6 +6,7 @@ interface Item {
     ratingStars: number;
     category: string;
     isInCart: boolean;
+    amount: number;
 }
 
 class ItemsManager {
@@ -21,6 +22,7 @@ class ItemsManager {
                 ratingStars: 3,
                 category: 'Keyboards',
                 isInCart: true,
+                amount: 1
             },
             {
                 id: 1,
@@ -30,6 +32,7 @@ class ItemsManager {
                 ratingStars: 4,
                 category: 'Laptops',
                 isInCart: false,
+                amount: 1
             },
             // {
             //     id: 3,
@@ -42,12 +45,13 @@ class ItemsManager {
             // },
             {
                 id: 3,
-                name: 'ASUS Vivobook 15',
+                name: 'ASUS Vivobook 15 sdfglknsdfluxcb iohaedfiohuj gjolidfsjgiojdf gcjklzxvljeofgier jklfsdvl knvlijerqjt 3432489 45913484 asdgfh',
                 price: 550,
                 imageUrl: 'https://brain.com.ua/static/images/prod_img/2/3/U0955123_big_1723656091.jpg',
                 ratingStars: 5,
                 category: 'Laptops',
                 isInCart: false,
+                amount: 1
             },
             {
                 id: 4,
@@ -57,6 +61,7 @@ class ItemsManager {
                 ratingStars: 5,
                 category: 'Watches',
                 isInCart: false,
+                amount: 1
             },
         ];
     }

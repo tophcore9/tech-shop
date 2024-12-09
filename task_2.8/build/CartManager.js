@@ -7,6 +7,9 @@ class CartManager {
         this._closeCartButton = document.querySelector('.cart-menu__close');
         this._items = document.querySelector('.cart-menu__items');
         this._totalPrice = document.querySelector('.total-price');
+        this._cartItemQuantity = document.querySelector('.cart-item__quantity');
+        this._cartItemMinus = document.querySelector('.cart-item__minus');
+        this._cartItemPlus = document.querySelector('.cart-item__plus');
         this._navCart.addEventListener('click', this.showCartMenu.bind(this));
         this._closeCartButton.addEventListener('click', this.hideCartMenu.bind(this));
     }
@@ -26,7 +29,7 @@ class CartManager {
         items.forEach((item) => {
             if (item.isInCart) {
                 this._items.innerHTML += `
-                    <div class="cart-menu__item">
+                    <div class="cart-menu__item" data-id="${item.id}">
                         <div class="cart-item__left">
                             <img class="cart-item__picture" src="${item.imageUrl}" alt="">
                             <div class="cart-item__info">
@@ -48,5 +51,13 @@ class CartManager {
             }
         });
         this._totalPrice.innerHTML = '$' + totalPrice;
+    }
+    increaseCount(itemId) {
+        let currentCount = Number(this._cartItemQuantity.innerHTML) + 1;
+        this._cartItemQuantity.innerHTML = currentCount.toString();
+    }
+    decreaseCount(itemId) {
+        let currentCount = Number(this._cartItemQuantity.innerHTML) - 1;
+        this._cartItemQuantity.innerHTML = currentCount.toString();
     }
 }
