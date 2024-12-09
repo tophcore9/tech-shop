@@ -1,9 +1,11 @@
 "use strict";
 class CartManager {
-    constructor() {
+    constructor(itemsManager) {
+        this._itemsManager = itemsManager;
         this._navCart = document.querySelector('.nav-cart');
         this._asideCart = document.querySelector('.cart-menu');
         this._closeCartButton = document.querySelector('.cart-menu__close');
+        this._items = document.querySelector('.cart-menu__items');
         this._navCart.addEventListener('click', this.showCartMenu.bind(this));
         this._closeCartButton.addEventListener('click', this.hideCartMenu.bind(this));
     }
@@ -12,5 +14,33 @@ class CartManager {
     }
     hideCartMenu() {
         this._asideCart.classList.remove('show-cart-menu');
+    }
+    removeItems() {
+        this._items.innerHTML = '';
+    }
+    updateItems() {
+        const items = this._itemsManager.getItems();
+        this.removeItems();
+        items.forEach((item) => {
+            this._items.innerHTML += `
+                <div class="cart-menu__item">
+                    <div class="cart-item__left">
+                        <img class="cart-item__picture" src="${item.imageUrl}" alt="">
+                        <div class="cart-item__info">
+                            <div class="cart-item__name">${item.name}</div>
+                            <div class="cart-item__price">$${item.price}</div>
+                        </div>
+                    </div>
+                    <div class="cart-item__right">
+                        <div class="cart-item__control">
+                            <button class="cart-item__minus quantity-button">−</button>
+                            <div class="cart-item__quantity">1</div>
+                            <button class="cart-item__plus quantity-button">+</button>
+                        </div>
+                        <button class="cart-item__remove-button">Remove</button>
+                    </div>
+                </div>
+            `;
+        });
     }
 }
