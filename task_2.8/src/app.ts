@@ -1,0 +1,1 @@
+const cartManager = new CartManager();

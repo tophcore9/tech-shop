@@ -24,6 +24,10 @@
   opacity: 0.6;
 }
 
+.show-cart-menu {
+  visibility: visible;
+}
+
 .cart-menu__block {
   width: 100%;
   display: flex;
