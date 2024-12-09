@@ -5,6 +5,7 @@ class CartManager {
     private _asideCart: HTMLElement;
     private _closeCartButton: HTMLButtonElement;
     private _items: HTMLElement;
+    private _totalPrice: HTMLElement;
 
     constructor(itemsManager: ItemsManager) {
         this._itemsManager = itemsManager;
@@ -13,6 +14,7 @@ class CartManager {
         this._asideCart = document.querySelector('.cart-menu') as HTMLElement;
         this._closeCartButton = document.querySelector('.cart-menu__close') as HTMLButtonElement;
         this._items = document.querySelector('.cart-menu__items') as HTMLElement;
+        this._totalPrice = document.querySelector('.total-price') as HTMLElement;
 
         this._navCart.addEventListener('click', this.showCartMenu.bind(this));
         this._closeCartButton.addEventListener('click', this.hideCartMenu.bind(this));
@@ -32,6 +34,7 @@ class CartManager {
     
     public updateItems() {
         const items = this._itemsManager.getItems();
+        let totalPrice = 0;
         
         this.removeItems();
         
@@ -56,7 +59,10 @@ class CartManager {
                         </div>
                     </div>
                 `
+                totalPrice += item.price;
             }
         })
+
+        this._totalPrice.innerHTML = '$' + totalPrice;
     }
 }

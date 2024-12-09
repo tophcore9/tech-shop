@@ -6,6 +6,7 @@ class CartManager {
         this._asideCart = document.querySelector('.cart-menu');
         this._closeCartButton = document.querySelector('.cart-menu__close');
         this._items = document.querySelector('.cart-menu__items');
+        this._totalPrice = document.querySelector('.total-price');
         this._navCart.addEventListener('click', this.showCartMenu.bind(this));
         this._closeCartButton.addEventListener('click', this.hideCartMenu.bind(this));
     }
@@ -20,6 +21,7 @@ class CartManager {
     }
     updateItems() {
         const items = this._itemsManager.getItems();
+        let totalPrice = 0;
         this.removeItems();
         items.forEach((item) => {
             if (item.isInCart) {
@@ -42,7 +44,9 @@ class CartManager {
                         </div>
                     </div>
                 `;
+                totalPrice += item.price;
             }
         });
+        this._totalPrice.innerHTML = '$' + totalPrice;
     }
 }
