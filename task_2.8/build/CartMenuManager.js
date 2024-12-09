@@ -2,6 +2,7 @@
 class CartManager {
     constructor(itemsManager) {
         this._itemsManager = itemsManager;
+        this._cartItems = new CartItems();
         this._navCart = document.querySelector('.nav-cart');
         this._asideCart = document.querySelector('.cart-menu');
         this._closeCartButton = document.querySelector('.cart-menu__close');

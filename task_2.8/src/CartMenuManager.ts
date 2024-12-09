@@ -1,10 +1,6 @@
-interface CartItem extends Item {
-    count: number;
-}
-
 class CartManager {
+    private _cartItems: CartItems;
     private _itemsManager: ItemsManager;
-    // private _cartItems: CartItem[];
 
     private _navCart: HTMLButtonElement;
     private _asideCart: HTMLElement;
@@ -17,6 +13,7 @@ class CartManager {
 
     constructor(itemsManager: ItemsManager) {
         this._itemsManager = itemsManager;
+        this._cartItems = new CartItems();
 
         this._navCart = document.querySelector('.nav-cart') as HTMLButtonElement;
         this._asideCart = document.querySelector('.cart-menu') as HTMLElement;
