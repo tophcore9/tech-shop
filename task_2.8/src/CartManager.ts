@@ -1,5 +1,10 @@
+interface CartItem extends Item {
+    count: number;
+}
+
 class CartManager {
     private _itemsManager: ItemsManager;
+    // private _cartItems: CartItem[];
 
     private _navCart: HTMLButtonElement;
     private _asideCart: HTMLElement;

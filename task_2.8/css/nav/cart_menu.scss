@@ -127,7 +127,7 @@
 
 .cart-item__left {
     width: 50%;
-    max-height: 200px;
+    // max-height: 200px;
     
     display: flex;
     flex-direction: column;
@@ -157,11 +157,13 @@
 .cart-item__right {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .cart-item__control {
+    margin-bottom: 20px;
+
     display: flex;
     align-items: center;
     gap: 10px;
