@@ -2,8 +2,10 @@
   padding: 35px;
   width: 450px;
   height: 100%;
+  opacity: 0;
   visibility: hidden;
   overflow-y: scroll;
+  transition: visibility 0.5s ease, opacity 0.5s ease-out;
   position: fixed;
   top: 0;
   right: 0;
@@ -26,6 +28,7 @@
 
 .show-cart-menu {
   visibility: visible;
+  opacity: 1;
 }
 
 .cart-menu__block {
