@@ -1,0 +1,1 @@
+const itemsManager = new ItemsManager();

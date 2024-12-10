@@ -11,6 +11,7 @@ interface Item {
 
 class ItemsManager {
     private _items: Item[];
+    private _itemsJsonUrl: string = '../items.json';
 
     constructor() {
         this._items = [];
@@ -64,7 +65,16 @@ class ItemsManager {
     }
     
     /* Loading items from JSON file */
-    private loadCartItems() {
+    private async loadCartItems() {
+        try {
+            const loadedItems = await fetch(this._itemsJsonUrl);
+            if (!loadedItems.ok) throw Error("Can't fetch items from " + this._itemsJsonUrl);
 
+            this._items = await loadedItems.json();
+        } catch(errorMsg) {
+            console.error(errorMsg);
+        }
+        
+        console.log(this._items);
     }
 }
