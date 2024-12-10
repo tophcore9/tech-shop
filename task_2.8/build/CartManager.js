@@ -3,8 +3,16 @@ class CartManager {
     constructor() {
         this._cartItemsField = 'cartItems';
         this._cartItems = [];
-        this._cartMenu = document.querySelector('.cart-menu');
         this.loadCartItems();
+        console.log(this._cartItems[0]);
+        this._cartMenu = document.querySelector('.cart-menu');
+        this._navCartMenu = document.querySelector('.nav-cart');
+        this._cartMenuClose = document.querySelector('.cart-menu__close');
+        this._totalPrice = document.querySelector('.total-price');
+        this._cartItemsWrapper = document.querySelector('.cart-menu__items');
+        this._navCartMenu.addEventListener('click', this.showMenuCart.bind(this));
+        this._cartMenuClose.addEventListener('click', this.hideMenuCart.bind(this));
+        this.updateCartItems();
     }
     /* Adding a new item to cart */
     addItemToCart(item) {
@@ -31,11 +39,12 @@ class CartManager {
     }
     /* Looking for an item in the cart, if it's not found return null */
     findItem(itemId) {
+        let foundItem = null;
         this._cartItems.forEach((item) => {
             if (item.id === itemId)
-                return item;
+                foundItem = item;
         });
-        return null;
+        return foundItem;
     }
     /* Counting the total value of the each items in the cart */
     getTotalValue() {
@@ -63,6 +72,9 @@ class CartManager {
             }
         });
     }
+    removeRenderedCartItems() {
+        this._cartItemsWrapper.innerHTML = '';
+    }
     /* Showing a menu cart by adding an according class */
     showMenuCart() {
         this._cartMenu.classList.add('show-cart-menu');
@@ -77,11 +89,39 @@ class CartManager {
             this._cartItems = JSON.parse(localStorage.getItem(this._cartItemsField));
         }
         else {
+            this._cartItems = [];
             this.saveCartItems();
         }
     }
     /* Saving menu cart items to localStorage */
     saveCartItems() {
         localStorage.setItem(this._cartItemsField, JSON.stringify(this._cartItems));
+        this.updateCartItems();
+    }
+    updateCartItems() {
+        this.removeRenderedCartItems();
+        this._cartItems.forEach((cartItem) => {
+            this._cartItemsWrapper.innerHTML += `
+                <div class="cart-menu__item" data-id="${cartItem.id}">
+                    <div class="cart-item__left">
+                        <img class="cart-item__picture" src="${cartItem.imageUrl}" alt="">
+                        <div class="cart-item__info">
+                            <div class="cart-item__name">${cartItem.name}</div>
+                            <div class="cart-item__price">$${cartItem.price}</div>
+                        </div>
+                    </div>
+                    <div class="cart-item__right">
+                        <div class="cart-item__control">
+                            <button class="cart-item__minus quantity-button">−</button>
+                            <div class="cart-item__quantity">${cartItem.count}</div>
+                            <button class="cart-item__plus quantity-button">+</button>
+                        </div>
+                        <button class="cart-item__remove-button">Remove</button>
+                    </div>
+                </div>
+            `;
+        });
+        this._totalPrice.innerHTML = '$' + this.getTotalValue();
     }
 }
+const cartManager = new CartManager();

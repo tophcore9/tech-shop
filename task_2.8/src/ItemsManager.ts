@@ -5,8 +5,6 @@ interface Item {
     imageUrl: string;
     ratingStars: number;
     category: string;
-    isInCart: boolean;
-    amount: number;
 }
 
 class ItemsManager {
@@ -15,10 +13,8 @@ class ItemsManager {
 
     constructor() {
         this._items = [];
-        
-        this.loadCartItems();
     }
-    
+
     /* Adding a new item to the general list */
     public addItem(item: Item) {
         this._items.push(item);
@@ -38,43 +34,43 @@ class ItemsManager {
 
         return false;
     }
-    
+
     /* Getting all the items that are exist */
     public getAllItems(): Item[] {
         return this._items;
     }
-    
+
     /* Filter each items by category and return them */
     public getFilteredItemsByCategory(categoryName: string): Item[] {
         let filteredItems: Item[] = [];
-        
+
         this._items.forEach((item) => {
             if (item.category === categoryName) filteredItems.push(item);
-        })
-        
+        });
+
         return filteredItems;
     }
-    
+
     /* Looking for an item in the cart, if it's not found return null */
     public findItem(itemId: number): Item | null {
+        let foundItem = null;
+
         this._items.forEach((item) => {
-            if (item.id === itemId) return item;
-        })
-        
-        return null;
+            if (item.id === itemId) foundItem = item;
+        });
+
+        return foundItem;
     }
-    
+
     /* Loading items from JSON file */
-    private async loadCartItems() {
+    public async loadItemsFromJson(JsonUrl: string = this._itemsJsonUrl) {
         try {
-            const loadedItems = await fetch(this._itemsJsonUrl);
+            const loadedItems = await fetch(JsonUrl);
             if (!loadedItems.ok) throw Error("Can't fetch items from " + this._itemsJsonUrl);
 
             this._items = await loadedItems.json();
-        } catch(errorMsg) {
+        } catch (errorMsg) {
             console.error(errorMsg);
         }
-        
-        console.log(this._items);
     }
 }

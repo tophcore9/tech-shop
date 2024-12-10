@@ -12,7 +12,6 @@ class ItemsManager {
     constructor() {
         this._itemsJsonUrl = '../items.json';
         this._items = [];
-        this.loadCartItems();
     }
     /* Adding a new item to the general list */
     addItem(item) {
@@ -46,17 +45,18 @@ class ItemsManager {
     }
     /* Looking for an item in the cart, if it's not found return null */
     findItem(itemId) {
+        let foundItem = null;
         this._items.forEach((item) => {
             if (item.id === itemId)
-                return item;
+                foundItem = item;
         });
-        return null;
+        return foundItem;
     }
     /* Loading items from JSON file */
-    loadCartItems() {
-        return __awaiter(this, void 0, void 0, function* () {
+    loadItemsFromJson() {
+        return __awaiter(this, arguments, void 0, function* (JsonUrl = this._itemsJsonUrl) {
             try {
-                const loadedItems = yield fetch(this._itemsJsonUrl);
+                const loadedItems = yield fetch(JsonUrl);
                 if (!loadedItems.ok)
                     throw Error("Can't fetch items from " + this._itemsJsonUrl);
                 this._items = yield loadedItems.json();
@@ -64,7 +64,6 @@ class ItemsManager {
             catch (errorMsg) {
                 console.error(errorMsg);
             }
-            console.log(this._items);
         });
     }
 }
