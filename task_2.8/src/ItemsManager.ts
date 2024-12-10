@@ -9,10 +9,11 @@ interface Item {
 
 class ItemsManager {
     private _items: Item[];
-    private _itemsJsonUrl: string = '../items.json';
+    private _itemsJsonUrl: string;
 
     constructor() {
         this._items = [];
+        this._itemsJsonUrl = '../items.json';
     }
 
     /* Adding a new item to the general list */

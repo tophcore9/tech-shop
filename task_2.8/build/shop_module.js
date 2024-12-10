@@ -11,5 +11,5 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const itemsManager = new ItemsManager();
     yield itemsManager.loadItemsFromJson();
-    const shopRenderer = new ShopRenderer(itemsManager, cartManager);
+    const shopRenderer = new ShopRenderer(itemsManager, cartRenderer.getCardManager());
 }))();

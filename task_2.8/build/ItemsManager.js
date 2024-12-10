@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 class ItemsManager {
     constructor() {
-        this._itemsJsonUrl = '../items.json';
         this._items = [];
+        this._itemsJsonUrl = '../items.json';
     }
     /* Adding a new item to the general list */
     addItem(item) {

@@ -1,1 +1,1 @@
-const cartManager = new CartManager();
+const cartRenderer = new CartRenderer();
