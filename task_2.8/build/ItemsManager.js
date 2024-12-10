@@ -52,6 +52,14 @@ class ItemsManager {
         });
         return foundItem;
     }
+    getMaxPrice() {
+        let maxPrice = 0;
+        this._items.forEach((item) => {
+            if (item.price > maxPrice)
+                maxPrice = item.price;
+        });
+        return maxPrice;
+    }
     /* Loading items from JSON file */
     loadItemsFromJson() {
         return __awaiter(this, arguments, void 0, function* (JsonUrl = this._itemsJsonUrl) {

@@ -5,6 +5,8 @@ class ShopRenderer {
     private _shopCards: HTMLElement;
     private _cards: HTMLCollectionOf<HTMLElement>;
     private _topics: HTMLCollectionOf<HTMLInputElement>;
+    private _valueSlider: HTMLInputElement;
+    private _priceValue: HTMLInputElement;
 
     constructor(itemsManager: ItemsManager, cartManager: CartManager) {
         this._itemsManager = itemsManager;
@@ -14,9 +16,19 @@ class ShopRenderer {
         this._cards = document.getElementsByClassName('shop__card') as HTMLCollectionOf<HTMLElement>;
 
         this._topics = document.getElementsByClassName('topic-item__radio') as HTMLCollectionOf<HTMLInputElement>;
+        this._valueSlider = document.querySelector('.price__range') as HTMLInputElement;
+        this._priceValue = document.querySelector('.price__value') as HTMLInputElement;
+        this._valueSlider.value = this._valueSlider.max = this._itemsManager.getMaxPrice().toString();
+        this._priceValue.innerHTML = 'Value: $' + this._valueSlider.value;
 
         this.renderAllItems();
 
+        this.addEventListenersForCheckboxes();
+        this.addEventListenersForFilters();
+        this.addEventListenersForRange();
+    }
+    
+    private addEventListenersForCheckboxes() {
         [...this._cards].forEach((card) => {
             card.addEventListener('click', (event) => {
                 const currentCheckbox = event.target as HTMLInputElement;
@@ -30,10 +42,26 @@ class ShopRenderer {
                 }
             });
         });
+    }
 
+    private addEventListenersForRange() {
+        this._valueSlider.addEventListener('input', (event) => {
+            const rangeItem = event.target as HTMLInputElement;
+
+            this._priceValue.innerHTML = 'Value: $' + rangeItem.value;
+        })
+
+        this._valueSlider.addEventListener('change', (event) => {
+            const rangeItem = event.target as HTMLInputElement;
+
+            this.showFilteredItemsByPrice(Number(rangeItem.value));
+        })
+    }
+    
+    private addEventListenersForFilters() {
         [...this._topics].forEach((topic) => {
             topic.addEventListener('click', () => {
-                if (topic.value != 'All') this.showFilteredItems(topic.value);
+                if (topic.value != 'All') this.showFilteredItemsByCategory(topic.value);
                 else this.showAllItems();
             });
         });
@@ -55,11 +83,18 @@ class ShopRenderer {
         });
     }
 
-    public showFilteredItems(filterName: string) {
+    public showFilteredItemsByCategory(filterName: string) {
         this.hideAllItems();
-        console.log(this._cards);
         [...this._cards].forEach((item) => {
             if (this._itemsManager.findItem(Number(item.dataset.id as string))?.category == filterName)
+                item.classList.remove('shop__card-hidden');
+        });
+    }
+
+    public showFilteredItemsByPrice(maxPrice: number) {
+        this.hideAllItems();
+        [...this._cards].forEach((item) => {
+            if (Number(this._itemsManager.findItem(Number(item.dataset.id as string))?.price) < maxPrice)
                 item.classList.remove('shop__card-hidden');
         });
     }

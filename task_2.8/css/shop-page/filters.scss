@@ -89,7 +89,7 @@
     }
 }
 
-.prise-filter {
+.price-filter {
     width: 100%;
 }
 
@@ -107,7 +107,7 @@
     border-radius: 50%;
 }
 
-.prise__range {
+.price__range {
     margin-bottom: 15px;
 
     width: 100%;
@@ -129,7 +129,7 @@
     &::-ms-thumb {@include range_thumb()}
 }
 
-.prise__value {
+.price__value {
     font-size: 20px;
     font-weight: 700;
     line-height: 30px;

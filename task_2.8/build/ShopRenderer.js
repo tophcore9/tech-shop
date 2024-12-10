@@ -6,7 +6,16 @@ class ShopRenderer {
         this._shopCards = document.querySelector('.shop-cards');
         this._cards = document.getElementsByClassName('shop__card');
         this._topics = document.getElementsByClassName('topic-item__radio');
+        this._valueSlider = document.querySelector('.price__range');
+        this._priceValue = document.querySelector('.price__value');
+        this._valueSlider.value = this._valueSlider.max = this._itemsManager.getMaxPrice().toString();
+        this._priceValue.innerHTML = 'Value: $' + this._valueSlider.value;
         this.renderAllItems();
+        this.addEventListenersForCheckboxes();
+        this.addEventListenersForFilters();
+        this.addEventListenersForRange();
+    }
+    addEventListenersForCheckboxes() {
         [...this._cards].forEach((card) => {
             card.addEventListener('click', (event) => {
                 const currentCheckbox = event.target;
@@ -20,10 +29,22 @@ class ShopRenderer {
                 }
             });
         });
+    }
+    addEventListenersForRange() {
+        this._valueSlider.addEventListener('input', (event) => {
+            const rangeItem = event.target;
+            this._priceValue.innerHTML = 'Value: $' + rangeItem.value;
+        });
+        this._valueSlider.addEventListener('change', (event) => {
+            const rangeItem = event.target;
+            this.showFilteredItemsByPrice(Number(rangeItem.value));
+        });
+    }
+    addEventListenersForFilters() {
         [...this._topics].forEach((topic) => {
             topic.addEventListener('click', () => {
                 if (topic.value != 'All')
-                    this.showFilteredItems(topic.value);
+                    this.showFilteredItemsByCategory(topic.value);
                 else
                     this.showAllItems();
             });
@@ -42,12 +63,19 @@ class ShopRenderer {
             card.classList.remove('shop__card-hidden');
         });
     }
-    showFilteredItems(filterName) {
+    showFilteredItemsByCategory(filterName) {
         this.hideAllItems();
-        console.log(this._cards);
         [...this._cards].forEach((item) => {
             var _a;
             if (((_a = this._itemsManager.findItem(Number(item.dataset.id))) === null || _a === void 0 ? void 0 : _a.category) == filterName)
+                item.classList.remove('shop__card-hidden');
+        });
+    }
+    showFilteredItemsByPrice(maxPrice) {
+        this.hideAllItems();
+        [...this._cards].forEach((item) => {
+            var _a;
+            if (Number((_a = this._itemsManager.findItem(Number(item.dataset.id))) === null || _a === void 0 ? void 0 : _a.price) < maxPrice)
                 item.classList.remove('shop__card-hidden');
         });
     }

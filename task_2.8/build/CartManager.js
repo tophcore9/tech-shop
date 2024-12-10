@@ -11,7 +11,7 @@ class CartManager {
         this._cartItemsWrapper = document.querySelector('.cart-menu__items');
         this._navCartMenu.addEventListener('click', this.showMenuCart.bind(this));
         this._cartMenuClose.addEventListener('click', this.hideMenuCart.bind(this));
-        this.updateCartItems();
+        this.updateCartItemsRender();
     }
     /* Adding a new item to cart */
     addItemToCart(item) {
@@ -95,9 +95,9 @@ class CartManager {
     /* Saving menu cart items to localStorage */
     saveCartItems() {
         localStorage.setItem(this._cartItemsField, JSON.stringify(this._cartItems));
-        this.updateCartItems();
+        this.updateCartItemsRender();
     }
-    updateCartItems() {
+    updateCartItemsRender() {
         this.removeRenderedCartItems();
         this._cartItems.forEach((cartItem) => {
             this._cartItemsWrapper.innerHTML += `
@@ -123,4 +123,3 @@ class CartManager {
         this._totalPrice.innerHTML = '$' + this.getTotalValue();
     }
 }
-const cartManager = new CartManager();

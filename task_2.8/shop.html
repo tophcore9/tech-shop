@@ -80,10 +80,10 @@
                             <label class="topic-item__label" for="topic-mouses">Mouses</label>
                         </div>
                     </div>
-                    <div class="prise-filter">
+                    <div class="price-filter">
                         <h3 class="filter__title">Prise</h3>
-                        <input class="prise__range" type="range" min="0" max="100" value="0">
-                        <p class="prise__value">Value: $0</p>
+                        <input class="price__range" type="range" min="0" max="100" value="0">
+                        <p class="price__value">Value: $0</p>
                     </div>
                 </div>
                 
@@ -174,13 +174,8 @@
     <script src="build/ItemsManager.js"></script>
     <script src="build/CartManager.js"></script>
     <script src="build/ShopRenderer.js"></script>
-    <script>
-        (async() => {
-            const itemsManager = new ItemsManager();
-            await itemsManager.loadItemsFromJson();
 
-            const shopRenderer = new ShopRenderer(itemsManager, cartManager);
-        })();
-    </script>
+    <script src="build/cart_module.js"></script>
+    <script src="build/shop_module.js"></script>
 </body>
 </html>

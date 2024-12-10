@@ -61,6 +61,16 @@ class ItemsManager {
 
         return foundItem;
     }
+    
+    public getMaxPrice(): Number {
+        let maxPrice = 0;
+
+        this._items.forEach((item) => {
+            if (item.price > maxPrice) maxPrice = item.price;
+        })
+        
+        return maxPrice;
+    }
 
     /* Loading items from JSON file */
     public async loadItemsFromJson(JsonUrl: string = this._itemsJsonUrl) {

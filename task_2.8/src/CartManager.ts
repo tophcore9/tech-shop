@@ -26,7 +26,7 @@ class CartManager {
         this._navCartMenu.addEventListener('click', this.showMenuCart.bind(this));
         this._cartMenuClose.addEventListener('click', this.hideMenuCart.bind(this));
 
-        this.updateCartItems();
+        this.updateCartItemsRender();
     }
 
     /* Adding a new item to cart */
@@ -125,10 +125,10 @@ class CartManager {
     /* Saving menu cart items to localStorage */
     private saveCartItems() {
         localStorage.setItem(this._cartItemsField, JSON.stringify(this._cartItems));
-        this.updateCartItems();
+        this.updateCartItemsRender();
     }
 
-    private updateCartItems() {
+    private updateCartItemsRender() {
         this.removeRenderedCartItems();
         this._cartItems.forEach((cartItem) => {
             this._cartItemsWrapper.innerHTML += `
@@ -155,5 +155,3 @@ class CartManager {
         this._totalPrice.innerHTML = '$' + this.getTotalValue();
     }
 }
-
-const cartManager = new CartManager();
