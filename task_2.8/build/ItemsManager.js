@@ -1,69 +1,48 @@
 "use strict";
 class ItemsManager {
     constructor() {
-        this._items = [
-            {
-                id: 0,
-                name: 'Aula F3032',
-                price: 30,
-                imageUrl: 'https://brain.com.ua/static/images/prod_img/1/3/U0826113_big.jpg',
-                ratingStars: 3,
-                category: 'Keyboards',
-                isInCart: true,
-                amount: 1
-            },
-            {
-                id: 1,
-                name: 'Acer TravelMate P4',
-                price: 450,
-                imageUrl: 'https://brain.com.ua/static/images/prod_img/8/7/U0964387_big_1727105206.jpg',
-                ratingStars: 4,
-                category: 'Laptops',
-                isInCart: false,
-                amount: 1
-            },
-            // {
-            //     id: 3,
-            //     name: 'Samsung Galaxy S24 Ultra',
-            //     price: 1500,
-            //     imageUrl: 'https://brain.com.ua/static/images/prod_img/3/9/U0893139_3big_1705555238.jpg',
-            //     ratingStars: 4,
-            //     category: 'Smartphones',
-            //     isInCart: true,
-            // },
-            {
-                id: 3,
-                name: 'ASUS Vivobook 15 sdfglknsdfluxcb iohaedfiohuj gjolidfsjgiojdf gcjklzxvljeofgier jklfsdvl knvlijerqjt 3432489 45913484 asdgfh',
-                price: 550,
-                imageUrl: 'https://brain.com.ua/static/images/prod_img/2/3/U0955123_big_1723656091.jpg',
-                ratingStars: 5,
-                category: 'Laptops',
-                isInCart: false,
-                amount: 1
-            },
-            {
-                id: 4,
-                name: 'Apple Watch Series 10',
-                price: 500,
-                imageUrl: 'https://brain.com.ua/static/images/prod_img/3/0/U0961730_big_1726061269.jpg',
-                ratingStars: 5,
-                category: 'Watches',
-                isInCart: false,
-                amount: 1
-            },
-        ];
+        this._items = [];
+        this.loadCartItems();
     }
-    getItems() {
+    /* Adding a new item to the general list */
+    addItem(item) {
+        this._items.push(item);
+    }
+    /*
+     * Removing the item from the general list
+     * If item deleted return true, otherwise false
+     */
+    removeItem(itemId) {
+        for (let i = 0; i < this._items.length; ++i) {
+            if (this._items[i].id === itemId) {
+                this._items.splice(i, 1);
+                return true;
+            }
+        }
+        return false;
+    }
+    /* Getting all the items that are exist */
+    getAllItems() {
         return this._items;
     }
-    toggleCartState(itemId) {
+    /* Filter each items by category and return them */
+    getFilteredItemsByCategory(categoryName) {
+        let filteredItems = [];
         this._items.forEach((item) => {
-            if (item.id == itemId) {
-                item.isInCart = !item.isInCart;
-                return;
-            }
+            if (item.category === categoryName)
+                filteredItems.push(item);
         });
+        return filteredItems;
     }
-    updateItems() {
+    /* Looking for an item in the cart, if it's not found return null */
+    findItem(itemId) {
+        this._items.forEach((item) => {
+            if (item.id === itemId)
+                return item;
+        });
+        return null;
+    }
+    /* Loading items from JSON file */
+    loadCartItems() {
     }
 }
