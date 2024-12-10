@@ -4,7 +4,6 @@ class CartManager {
         this._cartItemsField = 'cartItems';
         this._cartItems = [];
         this.loadCartItems();
-        console.log(this._cartItems[0]);
         this._cartMenu = document.querySelector('.cart-menu');
         this._navCartMenu = document.querySelector('.nav-cart');
         this._cartMenuClose = document.querySelector('.cart-menu__close');

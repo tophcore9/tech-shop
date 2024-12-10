@@ -4,6 +4,7 @@ class ShopRenderer {
 
     private _shopCards: HTMLElement;
     private _cards: HTMLCollectionOf<HTMLElement>;
+    private _topics: HTMLCollectionOf<HTMLInputElement>;
 
     constructor(itemsManager: ItemsManager, cartManager: CartManager) {
         this._itemsManager = itemsManager;
@@ -11,6 +12,8 @@ class ShopRenderer {
 
         this._shopCards = document.querySelector('.shop-cards') as HTMLElement;
         this._cards = document.getElementsByClassName('shop__card') as HTMLCollectionOf<HTMLElement>;
+
+        this._topics = document.getElementsByClassName('topic-item__radio') as HTMLCollectionOf<HTMLInputElement>;
 
         this.renderAllItems();
 
@@ -27,10 +30,38 @@ class ShopRenderer {
                 }
             });
         });
+
+        [...this._topics].forEach((topic) => {
+            topic.addEventListener('click', () => {
+                if (topic.value != 'All') this.showFilteredItems(topic.value);
+                else this.showAllItems();
+            });
+        });
     }
 
     public removeAllItems() {
         this._shopCards.innerHTML = '';
+    }
+
+    public hideAllItems() {
+        [...this._cards].forEach((card) => {
+            card.classList.add('shop__card-hidden');
+        });
+    }
+
+    public showAllItems() {
+        [...this._cards].forEach((card) => {
+            card.classList.remove('shop__card-hidden');
+        });
+    }
+
+    public showFilteredItems(filterName: string) {
+        this.hideAllItems();
+        console.log(this._cards);
+        [...this._cards].forEach((item) => {
+            if (this._itemsManager.findItem(Number(item.dataset.id as string))?.category == filterName)
+                item.classList.remove('shop__card-hidden');
+        });
     }
 
     public renderAllItems() {

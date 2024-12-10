@@ -16,7 +16,6 @@ class CartManager {
     constructor() {
         this._cartItems = [];
         this.loadCartItems();
-        console.log(this._cartItems[0]);
 
         this._cartMenu = document.querySelector('.cart-menu') as HTMLElement;
         this._navCartMenu = document.querySelector('.nav-cart') as HTMLElement;

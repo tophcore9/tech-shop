@@ -5,6 +5,7 @@ class ShopRenderer {
         this._cartManager = cartManager;
         this._shopCards = document.querySelector('.shop-cards');
         this._cards = document.getElementsByClassName('shop__card');
+        this._topics = document.getElementsByClassName('topic-item__radio');
         this.renderAllItems();
         [...this._cards].forEach((card) => {
             card.addEventListener('click', (event) => {
@@ -19,9 +20,36 @@ class ShopRenderer {
                 }
             });
         });
+        [...this._topics].forEach((topic) => {
+            topic.addEventListener('click', () => {
+                if (topic.value != 'All')
+                    this.showFilteredItems(topic.value);
+                else
+                    this.showAllItems();
+            });
+        });
     }
     removeAllItems() {
         this._shopCards.innerHTML = '';
+    }
+    hideAllItems() {
+        [...this._cards].forEach((card) => {
+            card.classList.add('shop__card-hidden');
+        });
+    }
+    showAllItems() {
+        [...this._cards].forEach((card) => {
+            card.classList.remove('shop__card-hidden');
+        });
+    }
+    showFilteredItems(filterName) {
+        this.hideAllItems();
+        console.log(this._cards);
+        [...this._cards].forEach((item) => {
+            var _a;
+            if (((_a = this._itemsManager.findItem(Number(item.dataset.id))) === null || _a === void 0 ? void 0 : _a.category) == filterName)
+                item.classList.remove('shop__card-hidden');
+        });
     }
     renderAllItems() {
         this.removeAllItems();
