@@ -1,7 +1,7 @@
 "use strict";
 class CartItemsRenderer extends BaseItemsRenderer {
-    constructor(cartMenuClassName, cartManager) {
-        super(cartMenuClassName, cartManager);
+    constructor(itemsWrapperClassName, cartManager) {
+        super(itemsWrapperClassName, cartManager);
     }
     renderItem(item) {
         this._wrapperClass.innerHTML += `

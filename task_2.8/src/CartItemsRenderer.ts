@@ -1,6 +1,6 @@
 class CartItemsRenderer extends BaseItemsRenderer<CartItem, CartItemsManager> {
-    constructor(cartMenuClassName: string, cartManager: CartItemsManager) {
-        super(cartMenuClassName, cartManager);
+    constructor(itemsWrapperClassName: string, cartManager: CartItemsManager) {
+        super(itemsWrapperClassName, cartManager);
     }
 
     public renderItem(item: CartItem): void {

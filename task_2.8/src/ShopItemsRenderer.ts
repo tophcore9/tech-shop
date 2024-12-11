@@ -1,6 +1,14 @@
-class ShopItemsRenderer extends BaseItemsRenderer<CartItem,CartItemsManager> {
-    constructor(cartMenuClassName: string, cartManager: CartItemsManager) {
-        super(cartMenuClassName, cartManager);
+class ShopItemsRenderer extends BaseItemsRenderer<Item,ShopItemsManager> {
+    private _cardCheckboxes: HTMLCollectionOf<HTMLInputElement>;
+
+    constructor(itemsWrapperClassName: string, shopItemsManager: ShopItemsManager) {
+        super(itemsWrapperClassName, shopItemsManager);
+        
+        this._cardCheckboxes = this._wrapperClass.getElementsByClassName('add-card__checkbox') as HTMLCollectionOf<HTMLInputElement>;
+    }
+    
+    public get checkboxes(): HTMLCollectionOf<HTMLInputElement> {
+        return this._cardCheckboxes;
     }
 
     public renderItem(item: CartItem): void {

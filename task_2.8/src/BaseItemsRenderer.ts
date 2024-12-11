@@ -1,5 +1,5 @@
 abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsManager<TItem>> {
-    private _manager: TManager;
+    protected _manager: TManager;
     protected _wrapperClass: HTMLElement;
 
     constructor(wrapperClassName: string, manager: TManager) {

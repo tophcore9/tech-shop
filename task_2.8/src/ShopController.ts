@@ -9,11 +9,30 @@
 // CartItemsManager                      CartMenuController
 
 class ShopController {
-    private _itemsRenderer: ShopItemsRenderer;
-    private _cartRenderer: CartItemsRenderer;
+    private _shopItemsRenderer: ShopItemsRenderer;
+    private _cartItemsRenderer: CartItemsRenderer;
 
-    constructor(itemsRenderer: ShopItemsRenderer, cartRenderer: CartItemsRenderer) {
-        this._itemsRenderer = itemsRenderer;
-        this._cartRenderer = cartRenderer;
+    constructor(shopItemsRenderer: ShopItemsRenderer, cartItemsRenderer: CartItemsRenderer) {
+        this._shopItemsRenderer = shopItemsRenderer;
+        this._cartItemsRenderer = cartItemsRenderer;
+
+        this._shopItemsRenderer.renderItems();
+
+        [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
+            checkbox.addEventListener('click', (event) => {
+                const currentItem = event.target as HTMLElement;
+                const parentItem = currentItem.parentElement as HTMLElement;
+                const currentItemId = Number(parentItem.dataset.id);
+                const itemById = this._shopItemsRenderer.manager.findItem(currentItemId);
+
+                if (checkbox.checked) {
+                    this._cartItemsRenderer.manager.addItem(itemById as CartItem);
+                    this._cartItemsRenderer.updateRender();
+                } else {
+                    this._cartItemsRenderer.manager.removeItem(currentItemId);
+                    this._cartItemsRenderer.updateRender();
+                }
+            });
+        });
     }
 }

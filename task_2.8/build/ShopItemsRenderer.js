@@ -1,7 +1,11 @@
 "use strict";
 class ShopItemsRenderer extends BaseItemsRenderer {
-    constructor(cartMenuClassName, cartManager) {
-        super(cartMenuClassName, cartManager);
+    constructor(itemsWrapperClassName, shopItemsManager) {
+        super(itemsWrapperClassName, shopItemsManager);
+        this._cardCheckboxes = this._wrapperClass.getElementsByClassName('add-card__checkbox');
+    }
+    get checkboxes() {
+        return this._cardCheckboxes;
     }
     renderItem(item) {
         this._wrapperClass.innerHTML += `

@@ -7,9 +7,12 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
 
     constructor() {
         super();
-        (async () => {
-            this.loadCartItems();
-        })();
+        this.loadCartItems();
+    }
+    
+    public addItem(item: CartItem): void {
+        this._items.push({...item, count: 1});
+        this.saveCartItems();
     }
 
     /* Counting the total value of the each items in the cart */
