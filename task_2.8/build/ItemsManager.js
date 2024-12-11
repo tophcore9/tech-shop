@@ -31,7 +31,7 @@ class ItemsManager {
         return false;
     }
     /* Getting all the items that are exist */
-    getAllItems() {
+    get items() {
         return this._items;
     }
     /* Filter each items by category and return them */

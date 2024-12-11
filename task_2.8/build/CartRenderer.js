@@ -10,8 +10,19 @@ class CartRenderer {
         this._navCartMenu.addEventListener('click', this.showMenuCart.bind(this));
         this._cartMenuClose.addEventListener('click', this.hideMenuCart.bind(this));
         this.updateCartItemsRender();
+        window.addEventListener('storage', (event) => {
+            console.log('change');
+        });
+        this._cartManager.addItemToCart({
+            id: 3,
+            name: 'Apple Watch Series 10',
+            price: 500,
+            imageUrl: 'https://brain.com.ua/static/images/prod_img/3/0/U0961730_big_1726061269.jpg',
+            ratingStars: 5,
+            category: 'Watches',
+        });
     }
-    getCardManager() {
+    get cardManager() {
         return this._cartManager;
     }
     /* Showing a menu cart by adding an according class */
@@ -28,25 +39,6 @@ class CartRenderer {
     updateCartItemsRender() {
         this.removeRenderedCartItems();
         this._cartManager.getAllCartItems().forEach((cartItem) => {
-            this._cartItemsWrapper.innerHTML += `
-                <div class="cart-menu__item" data-id="${cartItem.id}">
-                    <div class="cart-item__left">
-                        <img class="cart-item__picture" src="${cartItem.imageUrl}" alt="">
-                        <div class="cart-item__info">
-                            <div class="cart-item__name">${cartItem.name}</div>
-                            <div class="cart-item__price">$${cartItem.price}</div>
-                        </div>
-                    </div>
-                    <div class="cart-item__right">
-                        <div class="cart-item__control">
-                            <button class="cart-item__minus quantity-button">−</button>
-                            <div class="cart-item__quantity">${cartItem.count}</div>
-                            <button class="cart-item__plus quantity-button">+</button>
-                        </div>
-                        <button class="cart-item__remove-button">Remove</button>
-                    </div>
-                </div>
-            `;
         });
         this._totalPrice.innerHTML = '$' + this._cartManager.getTotalValue();
     }
