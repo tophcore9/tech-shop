@@ -10,9 +10,9 @@ interface Item {
 abstract class BaseManager<T extends Item> {
     protected _items: T[] = [];
 
-    // constructor(items: T[] = []) {
-    //     this._items = items;
-    // }
+    constructor(items: T[] = []) {
+        this._items = items;
+    }
 
     /* Getting all the items that are exist */
     public get items(): Item[] {

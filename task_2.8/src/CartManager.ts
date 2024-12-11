@@ -7,7 +7,9 @@ class CartManager extends BaseManager<CartItem> {
 
     constructor() {
         super();
-        this.loadCartItems();
+        (async () => {
+            this.loadCartItems();
+        })();
     }
 
     /* Counting the total value of the each items in the cart */

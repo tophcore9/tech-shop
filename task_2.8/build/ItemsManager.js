@@ -8,50 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-class ItemsManager {
+class ItemsManager extends BaseManager {
     constructor() {
-        this._items = [];
+        super();
         this._itemsJsonUrl = '../items.json';
     }
-    /* Adding a new item to the general list */
-    addItem(item) {
-        this._items.push(item);
-    }
-    /*
-     * Removing the item from the general list
-     * If item deleted return true, otherwise false
-     */
-    removeItem(itemId) {
-        for (let i = 0; i < this._items.length; ++i) {
-            if (this._items[i].id === itemId) {
-                this._items.splice(i, 1);
-                return true;
-            }
-        }
-        return false;
-    }
-    /* Getting all the items that are exist */
-    get items() {
-        return this._items;
-    }
-    /* Filter each items by category and return them */
-    getFilteredItemsByCategory(categoryName) {
-        let filteredItems = [];
-        this._items.forEach((item) => {
-            if (item.category === categoryName)
-                filteredItems.push(item);
-        });
-        return filteredItems;
-    }
-    /* Looking for an item in the cart, if it's not found return null */
-    findItem(itemId) {
-        let foundItem = null;
-        this._items.forEach((item) => {
-            if (item.id === itemId)
-                foundItem = item;
-        });
-        return foundItem;
-    }
+    /* Get the max price  */
     getMaxPrice() {
         let maxPrice = 0;
         this._items.forEach((item) => {
@@ -73,5 +35,14 @@ class ItemsManager {
                 console.error(errorMsg);
             }
         });
+    }
+    /* Filter each items by category and return them */
+    getFilteredItemsByCategory(categoryName) {
+        let filteredItems = [];
+        this._items.forEach((item) => {
+            if (item.category === categoryName)
+                filteredItems.push(item);
+        });
+        return filteredItems;
     }
 }

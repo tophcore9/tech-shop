@@ -1,6 +1,6 @@
 class ItemsManager extends BaseManager<Item> {
     private _itemsJsonUrl: string;
-    
+
     constructor() {
         super();
         this._itemsJsonUrl = '../items.json';
