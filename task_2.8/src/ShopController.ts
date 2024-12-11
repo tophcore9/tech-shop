@@ -1,3 +1,13 @@
+// ShopItemsManager
+//                  \
+//                    ShopItemsRenderer
+//                                     \
+//                                       ShopController <--
+//                                     /
+//                    CartItemsRenderer
+//                  /                  \
+// CartItemsManager                      CartMenuController
+
 class ShopController {
     private _itemsRenderer: ShopItemsRenderer;
     private _cartRenderer: CartItemsRenderer;
@@ -7,13 +17,3 @@ class ShopController {
         this._cartRenderer = cartRenderer;
     }
 }
-
-// ShopItemsManager
-//                  \
-//                    ShopItemsRenderer
-//                                     \
-//                                       ShopController
-//                                     /
-//                    CartItemsRenderer
-//                  /                  \
-// CartItemsManager                      CartController
