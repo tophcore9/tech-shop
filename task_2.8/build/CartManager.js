@@ -24,6 +24,16 @@ class CartManager extends BaseManager {
         });
         return totalValue;
     }
+    increaseItemCount(itemId) {
+        const foundItem = this.findItem(itemId);
+        if (foundItem != null)
+            foundItem.count++;
+    }
+    decreaseItemCount(itemId) {
+        const foundItem = this.findItem(itemId);
+        if (foundItem != null)
+            foundItem.count--;
+    }
     /* Loading menu cart items from localStorage */
     loadCartItems() {
         if (localStorage.getItem(this._cartItemsField) != null) {

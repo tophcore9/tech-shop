@@ -7,20 +7,20 @@ interface Item {
     category: string;
 }
 
-abstract class BaseManager<T extends Item> {
-    protected _items: T[] = [];
+abstract class BaseManager<TItem extends Item> {
+    protected _items: TItem[] = [];
 
-    constructor(items: T[] = []) {
+    constructor(items: TItem[] = []) {
         this._items = items;
     }
 
     /* Getting all the items that are exist */
-    public get items(): Item[] {
+    public get items(): TItem[] {
         return this._items;
     }
 
     /* Adding a new item to the general list */
-    public addItem(item: T) {
+    public addItem(item: TItem) {
         this._items.push(item);
     }
 
@@ -40,7 +40,7 @@ abstract class BaseManager<T extends Item> {
     }
 
     /* Looking for an item in the cart, if it's not found return null */
-    public findItem(itemId: number): Item | null {
+    public findItem(itemId: number): TItem | null {
         let foundItem = null;
 
         this._items.forEach((item) => {

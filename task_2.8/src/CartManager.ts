@@ -22,6 +22,18 @@ class CartManager extends BaseManager<CartItem> {
 
         return totalValue;
     }
+    
+    public increaseItemCount(itemId: number) {
+        const foundItem = this.findItem(itemId);
+        
+        if (foundItem != null) foundItem.count++;
+    }
+
+    public decreaseItemCount(itemId: number) {
+        const foundItem = this.findItem(itemId);
+        
+        if (foundItem != null) foundItem.count--
+    }
 
     /* Loading menu cart items from localStorage */
     private loadCartItems() {
