@@ -1,4 +1,4 @@
-class ItemsManager extends BaseManager<Item> {
+class ShopItemsManager extends BaseItemsManager<Item> {
     private _itemsJsonUrl: string;
 
     constructor() {

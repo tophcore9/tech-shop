@@ -1,5 +1,5 @@
-class ItemsRenderer extends BaseRenderer<CartItem,CartManager> {
-    constructor(cartMenuClassName: string, cartManager: CartManager) {
+class ShopItemsRenderer extends BaseItemsRenderer<CartItem,CartItemsManager> {
+    constructor(cartMenuClassName: string, cartManager: CartItemsManager) {
         super(cartMenuClassName, cartManager);
     }
 

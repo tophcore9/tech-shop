@@ -1,4 +1,4 @@
-abstract class BaseRenderer<TItem extends Item, TManager extends BaseManager<TItem>> {
+abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsManager<TItem>> {
     private _manager: TManager;
     protected _wrapperClass: HTMLElement;
 
@@ -22,13 +22,12 @@ abstract class BaseRenderer<TItem extends Item, TManager extends BaseManager<TIt
         this._wrapperClass.innerHTML = '';
     }
     
-    /* Add item into the collection */
-    public addItem(item: TItem) {
-        this._manager.addItem(item);
+    public updateRender() {
+        this.removeRender();
+        this.renderItems();
     }
     
-    /* Remove item from the collection */
-    public removeItem(itemId: number) {
-        this._manager.removeItem(itemId);
+    public get manager(): TManager {
+        return this._manager;
     }
 }

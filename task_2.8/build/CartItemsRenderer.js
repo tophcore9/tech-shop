@@ -1,5 +1,5 @@
 "use strict";
-class CartRenderer extends BaseRenderer {
+class CartItemsRenderer extends BaseItemsRenderer {
     constructor(cartMenuClassName, cartManager) {
         super(cartMenuClassName, cartManager);
     }

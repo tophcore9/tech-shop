@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-class CartManager extends BaseManager {
+class CartItemsManager extends BaseItemsManager {
     constructor() {
         super();
         this._cartItemsField = 'cartItems';

@@ -1,5 +1,5 @@
 "use strict";
-class BaseRenderer {
+class BaseItemsRenderer {
     constructor(wrapperClassName, manager) {
         this._wrapperClass = document.querySelector('.' + wrapperClassName);
         this._manager = manager;
@@ -14,12 +14,11 @@ class BaseRenderer {
     removeRender() {
         this._wrapperClass.innerHTML = '';
     }
-    /* Add item into the collection */
-    addItem(item) {
-        this._manager.addItem(item);
+    updateRender() {
+        this.removeRender();
+        this.renderItems();
     }
-    /* Remove item from the collection */
-    removeItem(itemId) {
-        this._manager.removeItem(itemId);
+    get manager() {
+        return this._manager;
     }
 }

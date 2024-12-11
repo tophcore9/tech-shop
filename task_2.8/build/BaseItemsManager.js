@@ -1,5 +1,5 @@
 "use strict";
-class BaseManager {
+class BaseItemsManager {
     constructor(items = []) {
         this._items = [];
         this._items = items;

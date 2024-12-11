@@ -7,7 +7,7 @@ interface Item {
     category: string;
 }
 
-abstract class BaseManager<TItem extends Item> {
+abstract class BaseItemsManager<TItem extends Item> {
     protected _items: TItem[] = [];
 
     constructor(items: TItem[] = []) {

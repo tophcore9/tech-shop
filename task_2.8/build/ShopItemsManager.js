@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-class ItemsManager extends BaseManager {
+class ShopItemsManager extends BaseItemsManager {
     constructor() {
         super();
         this._itemsJsonUrl = '../items.json';

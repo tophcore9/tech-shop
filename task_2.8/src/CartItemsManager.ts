@@ -2,7 +2,7 @@ interface CartItem extends Item {
     count: number;
 }
 
-class CartManager extends BaseManager<CartItem> {
+class CartItemsManager extends BaseItemsManager<CartItem> {
     private _cartItemsField: string = 'cartItems';
 
     constructor() {
