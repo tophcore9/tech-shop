@@ -7,7 +7,7 @@ class ShopFiltrator {
         let filteredItems = [];
         this._items.forEach((item) => {
             if (item.category == categoryName)
-                this._items.push(item);
+                filteredItems.push(item);
         });
         return filteredItems;
     }
@@ -15,7 +15,7 @@ class ShopFiltrator {
         let filteredItems = [];
         this._items.forEach((item) => {
             if (item.price < maxPrice)
-                this._items.push(item);
+                filteredItems.push(item);
         });
         return filteredItems;
     }

@@ -36,13 +36,4 @@ class ShopItemsManager extends BaseItemsManager {
             }
         });
     }
-    /* Filter each items by category and return them */
-    getFilteredItemsByCategory(categoryName) {
-        let filteredItems = [];
-        this._items.forEach((item) => {
-            if (item.category === categoryName)
-                filteredItems.push(item);
-        });
-        return filteredItems;
-    }
 }

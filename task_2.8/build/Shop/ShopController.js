@@ -12,21 +12,34 @@ class ShopController {
     constructor(shopItemsRenderer, cartItemsRenderer) {
         this._shopItemsRenderer = shopItemsRenderer;
         this._cartItemsRenderer = cartItemsRenderer;
+        this._shopFiltrator = new ShopFiltrator(this._shopItemsRenderer.manager.items);
+        this._topics = document.getElementsByClassName('topic-item__radio');
         this._shopItemsRenderer.renderItems();
         this.setCheckboxes();
-        [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
-            checkbox.addEventListener('click', (event) => {
+        this._shopItemsRenderer.wrapperClass.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.className == 'add-card__checkbox') {
                 const currentItem = event.target;
                 const parentItem = currentItem.parentElement;
                 const currentItemId = Number(parentItem.dataset.id);
                 const itemById = this._shopItemsRenderer.manager.findItem(currentItemId);
-                if (checkbox.checked) {
+                if (target.checked) {
                     this._cartItemsRenderer.manager.addItem(itemById);
                 }
                 else {
                     this._cartItemsRenderer.manager.removeItem(currentItemId);
                 }
                 this._cartItemsRenderer.updateRender();
+            }
+        });
+        [...this._topics].forEach((topic) => {
+            topic.addEventListener('click', (event) => {
+                let filteredItems = this._shopItemsRenderer.manager.items;
+                if (topic.value != 'All') {
+                    filteredItems = this._shopFiltrator.filterByCategory(topic.value);
+                    this._shopItemsRenderer.updateCustomRender(filteredItems);
+                }
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
             });
         });
     }

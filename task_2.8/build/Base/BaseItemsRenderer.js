@@ -10,6 +10,11 @@ class BaseItemsRenderer {
             this.renderItem(item);
         });
     }
+    renderCustomItems(items) {
+        items.forEach((item) => {
+            this.renderItem(item);
+        });
+    }
     /* Remove already existed render */
     removeRender() {
         this._wrapperClass.innerHTML = '';
@@ -17,6 +22,10 @@ class BaseItemsRenderer {
     updateRender() {
         this.removeRender();
         this.renderItems();
+    }
+    updateCustomRender(items) {
+        this.removeRender();
+        this.renderCustomItems(items);
     }
     get manager() {
         return this._manager;

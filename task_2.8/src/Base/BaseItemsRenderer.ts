@@ -17,6 +17,12 @@ abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsM
         })
     }
 
+    public renderCustomItems(items: TItem[]) {
+        items.forEach((item) => {
+            this.renderItem(item);
+        })
+    }
+
     /* Remove already existed render */
     public removeRender() {
         this._wrapperClass.innerHTML = '';
@@ -25,6 +31,11 @@ abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsM
     public updateRender() {
         this.removeRender();
         this.renderItems();
+    }
+    
+    public updateCustomRender(items: TItem[]) {
+        this.removeRender();
+        this.renderCustomItems(items);
     }
     
     public get manager(): TManager {

@@ -28,15 +28,4 @@ class ShopItemsManager extends BaseItemsManager<Item> {
             console.error(errorMsg);
         }
     }
-
-    /* Filter each items by category and return them */
-    public getFilteredItemsByCategory(categoryName: string): Item[] {
-        let filteredItems: Item[] = [];
-
-        this._items.forEach((item) => {
-            if (item.category === categoryName) filteredItems.push(item);
-        });
-
-        return filteredItems;
-    }
 }
