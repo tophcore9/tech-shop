@@ -24,6 +24,8 @@ class ShopController {
 
         this._shopItemsRenderer.renderItems();
         this.setCheckboxes();
+        
+        document.querySelector('.cart-menu__close')?.addEventListener('click', this.setCheckboxes.bind(this));
 
         this._shopItemsRenderer.wrapperClass.addEventListener('click', (event) => {
             const target = event.target as HTMLInputElement;
@@ -54,6 +56,7 @@ class ShopController {
                 } 
                 
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
+                this.setCheckboxes();
             });
         });
     }

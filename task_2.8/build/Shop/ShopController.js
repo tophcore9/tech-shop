@@ -10,12 +10,14 @@
 // CartItemsManager                      CartMenuController
 class ShopController {
     constructor(shopItemsRenderer, cartItemsRenderer) {
+        var _a;
         this._shopItemsRenderer = shopItemsRenderer;
         this._cartItemsRenderer = cartItemsRenderer;
         this._shopFiltrator = new ShopFiltrator(this._shopItemsRenderer.manager.items);
         this._topics = document.getElementsByClassName('topic-item__radio');
         this._shopItemsRenderer.renderItems();
         this.setCheckboxes();
+        (_a = document.querySelector('.cart-menu__close')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', this.setCheckboxes.bind(this));
         this._shopItemsRenderer.wrapperClass.addEventListener('click', (event) => {
             const target = event.target;
             if (target.className == 'add-card__checkbox') {
@@ -40,6 +42,7 @@ class ShopController {
                     this._shopItemsRenderer.updateCustomRender(filteredItems);
                 }
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
+                this.setCheckboxes();
             });
         });
     }
