@@ -22,12 +22,11 @@ class ShopController {
                 const itemById = this._shopItemsRenderer.manager.findItem(currentItemId);
                 if (checkbox.checked) {
                     this._cartItemsRenderer.manager.addItem(itemById);
-                    this._cartItemsRenderer.updateRender();
                 }
                 else {
                     this._cartItemsRenderer.manager.removeItem(currentItemId);
-                    this._cartItemsRenderer.updateRender();
                 }
+                this._cartItemsRenderer.updateRender();
             });
         });
     }

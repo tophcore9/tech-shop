@@ -22,17 +22,22 @@ class CartMenuController {
             const target = event.target;
             const targetItem = (_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.parentElement;
             const targetItemId = Number(targetItem.dataset.id);
-            if (targetItem.querySelector('.cart-item__minus') == event.target) {
+            if (event.target == targetItem.querySelector('.cart-item__minus')) {
                 const currentCount = this._cartItemsRenderer.manager.decreaseItemCount(targetItemId);
                 const quantityField = targetItem.querySelector('.cart-item__quantity');
                 quantityField.innerHTML = currentCount.toString();
                 this._cartItemsRenderer.updateRender();
             }
-            else if (targetItem.querySelector('.cart-item__plus') == event.target) {
+            else if (event.target == targetItem.querySelector('.cart-item__plus')) {
                 const currentCount = this._cartItemsRenderer.manager.increaseItemCount(targetItemId);
                 const quantityField = targetItem.querySelector('.cart-item__quantity');
                 quantityField.innerHTML = currentCount.toString();
                 this._cartItemsRenderer.updateRender();
+            }
+            else if (event.target == targetItem.querySelector('.cart-item__remove-button')) {
+                this._cartItemsRenderer.manager.removeItem(targetItemId);
+                this._cartItemsRenderer.updateRender();
+                this._cartItemsRenderer.updateTotalValue();
             }
         });
     }

@@ -24,7 +24,9 @@ class CartItemsRenderer extends BaseItemsRenderer<CartItem, CartItemsManager> {
                         <div class="cart-item__quantity">${item.count}</div>
                         <button class="cart-item__plus quantity-button">+</button>
                     </div>
-                    <button class="cart-item__remove-button">Remove</button>
+                    <div>
+                        <button class="cart-item__remove-button">Remove</button>
+                    </div>
                 </div>
             </div>
         `;

@@ -28,11 +28,11 @@ class ShopController {
 
                 if (checkbox.checked) {
                     this._cartItemsRenderer.manager.addItem(itemById as CartItem);
-                    this._cartItemsRenderer.updateRender();
                 } else {
                     this._cartItemsRenderer.manager.removeItem(currentItemId);
-                    this._cartItemsRenderer.updateRender();
                 }
+
+                this._cartItemsRenderer.updateRender();
             });
         });
     }
