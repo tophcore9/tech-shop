@@ -1,6 +1,11 @@
 class CartItemsRenderer extends BaseItemsRenderer<CartItem, CartItemsManager> {
+    private _totalPrice: HTMLElement;
+
     constructor(itemsWrapperClassName: string, cartManager: CartItemsManager) {
         super(itemsWrapperClassName, cartManager);
+        
+        this._totalPrice = document.querySelector('.total-price') as HTMLElement;
+        this.updateTotalValue();
     }
 
     public renderItem(item: CartItem): void {
@@ -23,5 +28,10 @@ class CartItemsRenderer extends BaseItemsRenderer<CartItem, CartItemsManager> {
                 </div>
             </div>
         `;
+        this.updateTotalValue();
+    }
+    
+    public updateTotalValue() {
+        this._totalPrice.innerHTML = '$' + this.manager.getTotalValue();
     }
 }
