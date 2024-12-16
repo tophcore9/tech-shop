@@ -15,11 +15,21 @@ class ShopFiltrator {
         return filteredItems;
     }
 
+    public filterByPriceAndCategory(maxPrice: number, inCategory: string): Item[] {
+        let filteredItems: Item[] = [];
+
+        this._items.forEach((item) => {
+            if (item.category == inCategory && item.price <= maxPrice) filteredItems.push(item);
+        });
+
+        return filteredItems;
+    }
+
     public filterByPrice(maxPrice: number): Item[] {
         let filteredItems: Item[] = [];
 
         this._items.forEach((item) => {
-            if (item.price < maxPrice) filteredItems.push(item);
+            if (item.price <= maxPrice) filteredItems.push(item);
         });
 
         return filteredItems;

@@ -11,10 +11,18 @@ class ShopFiltrator {
         });
         return filteredItems;
     }
+    filterByPriceAndCategory(maxPrice, inCategory) {
+        let filteredItems = [];
+        this._items.forEach((item) => {
+            if (item.category == inCategory && item.price <= maxPrice)
+                filteredItems.push(item);
+        });
+        return filteredItems;
+    }
     filterByPrice(maxPrice) {
         let filteredItems = [];
         this._items.forEach((item) => {
-            if (item.price < maxPrice)
+            if (item.price <= maxPrice)
                 filteredItems.push(item);
         });
         return filteredItems;

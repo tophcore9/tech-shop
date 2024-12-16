@@ -10,11 +10,14 @@
 // CartItemsManager                      CartMenuController
 class ShopController {
     constructor(shopItemsRenderer, cartItemsRenderer) {
-        var _a;
+        var _a, _b, _c;
         this._shopItemsRenderer = shopItemsRenderer;
         this._cartItemsRenderer = cartItemsRenderer;
         this._shopFiltrator = new ShopFiltrator(this._shopItemsRenderer.manager.items);
         this._topics = document.getElementsByClassName('topic-item__radio');
+        this._currentTopic = document.querySelector('.topics__item');
+        this._priceRange = document.querySelector('.price__range');
+        this._priceValue = document.querySelector('.price__value');
         this._shopItemsRenderer.renderItems();
         this.setCheckboxes();
         (_a = document.querySelector('.cart-menu__close')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', this.setCheckboxes.bind(this));
@@ -35,7 +38,7 @@ class ShopController {
             }
         });
         [...this._topics].forEach((topic) => {
-            topic.addEventListener('click', (event) => {
+            topic.addEventListener('click', () => {
                 let filteredItems = this._shopItemsRenderer.manager.items;
                 if (topic.value != 'All') {
                     filteredItems = this._shopFiltrator.filterByCategory(topic.value);
@@ -43,7 +46,20 @@ class ShopController {
                 }
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
                 this.setCheckboxes();
+                this._currentTopic = topic;
+                this._priceRange.value = this._priceRange.max;
+                this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
             });
+        });
+        this._priceRange.max = this._shopItemsRenderer.manager.getMaxPrice().toString();
+        this._priceRange.value = this._priceRange.max;
+        this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
+        (_b = document.querySelector('.price__range')) === null || _b === void 0 ? void 0 : _b.addEventListener('input', () => {
+            this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
+        });
+        (_c = document.querySelector('.price__range')) === null || _c === void 0 ? void 0 : _c.addEventListener('change', () => {
+            const filteredItems = this._shopFiltrator.filterByPriceAndCategory(Number(this._priceRange.value), this._currentTopic.value);
+            this._shopItemsRenderer.updateCustomRender(filteredItems);
         });
     }
     setCheckboxes() {
