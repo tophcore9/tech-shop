@@ -22,15 +22,21 @@ class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
                     <span class="card-info__name">${item.name}</span>
                     <span class="card-info__price">$${item.price}</span>
                     <div class="card-info__rating">
-                        <div class="rating-star"></div>
-                        <div class="rating-star"></div>
-                        <div class="rating-star"></div>
-                        <div class="rating-star"></div>
-                        <div class="rating-star"></div>
+                    ${this.renderStars(item.ratingStars)}
                     </div>
                     <span class="card-info__category">${item.category}</span>
                 </div>
             </div>
         `;
+    }
+    
+    public renderStars(count: number): string {
+        let resultHTML = '';
+
+        for (let i = 0; i < count; ++i) {
+            resultHTML += `<div class="rating-star"></div>`;
+        }
+        
+        return resultHTML;
     }
 }
