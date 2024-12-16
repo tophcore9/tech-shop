@@ -18,6 +18,7 @@ class ShopController {
         this._currentTopic = document.querySelector('.topics__item');
         this._priceRange = document.querySelector('.price__range');
         this._priceValue = document.querySelector('.price__value');
+        this._cardCheckboxes = this._shopItemsRenderer.wrapperClass.getElementsByClassName('add-card__checkbox');
         this._searchInput = document.querySelector('.search__input');
         this._searchButton = document.querySelector('.search__button');
         this._searchButton.addEventListener('click', () => {
@@ -78,12 +79,18 @@ class ShopController {
             this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
         });
         (_c = document.querySelector('.price__range')) === null || _c === void 0 ? void 0 : _c.addEventListener('change', () => {
-            const filteredItems = this._shopFiltrator.filterByPriceAndCategory(Number(this._priceRange.value), this._currentTopic.value);
+            let filteredItems = [];
+            if (this._currentTopic.value != 'All') {
+                filteredItems = this._shopFiltrator.filterByPriceAndCategory(Number(this._priceRange.value), this._currentTopic.value);
+            }
+            else {
+                filteredItems = this._shopFiltrator.filterByPrice(Number(this._priceRange.value));
+            }
             this._shopItemsRenderer.updateCustomRender(filteredItems);
         });
     }
     setCheckboxes() {
-        [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
+        [...this._cardCheckboxes].forEach((checkbox) => {
             const parent = checkbox.parentElement;
             const parentId = Number(parent === null || parent === void 0 ? void 0 : parent.dataset.id);
             if (this._cartItemsRenderer.manager.findItem(parentId))

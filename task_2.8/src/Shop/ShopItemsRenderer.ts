@@ -1,18 +1,9 @@
 class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
-    private _cardCheckboxes: HTMLCollectionOf<HTMLInputElement>;
-
     constructor(itemsWrapperClassName: string, shopItemsManager: ShopItemsManager) {
         super(itemsWrapperClassName, shopItemsManager);
-
-        this._cardCheckboxes = this._wrapperClass.getElementsByClassName(
-            'add-card__checkbox',
-        ) as HTMLCollectionOf<HTMLInputElement>;
     }
 
-    public get checkboxes(): HTMLCollectionOf<HTMLInputElement> {
-        return this._cardCheckboxes;
-    }
-
+    /* Rendering an item */
     public renderItem(item: Item): void {
         this._wrapperClass.innerHTML += `
             <div class="shop__card" data-id="${item.id}">
@@ -29,14 +20,15 @@ class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
             </div>
         `;
     }
-    
+
+    /* Rendering rating stars for items */
     public renderStars(count: number): string {
         let resultHTML = '';
 
         for (let i = 0; i < count; ++i) {
             resultHTML += `<div class="rating-star"></div>`;
         }
-        
+
         return resultHTML;
     }
 }

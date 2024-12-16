@@ -14,34 +14,34 @@ abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsM
     public renderItems() {
         this._manager.items.forEach((item) => {
             this.renderItem(item);
-        })
+        });
     }
 
     public renderCustomItems(items: TItem[]) {
         items.forEach((item) => {
             this.renderItem(item);
-        })
+        });
     }
 
     /* Remove already existed render */
     public removeRender() {
         this._wrapperClass.innerHTML = '';
     }
-    
+
     public updateRender() {
         this.removeRender();
         this.renderItems();
     }
-    
+
     public updateCustomRender(items: TItem[]) {
         this.removeRender();
         this.renderCustomItems(items);
     }
-    
+
     public get manager(): TManager {
         return this._manager;
     }
-    
+
     public get wrapperClass(): HTMLElement {
         return this._wrapperClass;
     }

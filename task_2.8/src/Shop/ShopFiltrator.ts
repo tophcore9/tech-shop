@@ -39,7 +39,8 @@ class ShopFiltrator {
         let filteredItems: Item[] = [];
 
         this._items.forEach((item) => {
-            if ((item.name).toLowerCase().includes(itemName.toLowerCase()) && item.category == categoryName) filteredItems.push(item);
+            if (item.name.toLowerCase().includes(itemName.toLowerCase()) && item.category == categoryName)
+                filteredItems.push(item);
         });
 
         return filteredItems;
@@ -49,7 +50,7 @@ class ShopFiltrator {
         let filteredItems: Item[] = [];
 
         this._items.forEach((item) => {
-            if ((item.name).toLowerCase().includes(itemName.toLowerCase())) filteredItems.push(item);
+            if (item.name.toLowerCase().includes(itemName.toLowerCase())) filteredItems.push(item);
         });
 
         return filteredItems;

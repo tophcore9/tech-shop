@@ -2,11 +2,8 @@
 class ShopItemsRenderer extends BaseItemsRenderer {
     constructor(itemsWrapperClassName, shopItemsManager) {
         super(itemsWrapperClassName, shopItemsManager);
-        this._cardCheckboxes = this._wrapperClass.getElementsByClassName('add-card__checkbox');
     }
-    get checkboxes() {
-        return this._cardCheckboxes;
-    }
+    /* Rendering an item */
     renderItem(item) {
         this._wrapperClass.innerHTML += `
             <div class="shop__card" data-id="${item.id}">
@@ -23,6 +20,7 @@ class ShopItemsRenderer extends BaseItemsRenderer {
             </div>
         `;
     }
+    /* Rendering rating stars for items */
     renderStars(count) {
         let resultHTML = '';
         for (let i = 0; i < count; ++i) {

@@ -30,7 +30,7 @@ class ShopFiltrator {
     filterByNameAndCategory(itemName, categoryName) {
         let filteredItems = [];
         this._items.forEach((item) => {
-            if ((item.name).toLowerCase().includes(itemName.toLowerCase()) && item.category == categoryName)
+            if (item.name.toLowerCase().includes(itemName.toLowerCase()) && item.category == categoryName)
                 filteredItems.push(item);
         });
         return filteredItems;
@@ -38,7 +38,7 @@ class ShopFiltrator {
     filterByName(itemName) {
         let filteredItems = [];
         this._items.forEach((item) => {
-            if ((item.name).toLowerCase().includes(itemName.toLowerCase()))
+            if (item.name.toLowerCase().includes(itemName.toLowerCase()))
                 filteredItems.push(item);
         });
         return filteredItems;
