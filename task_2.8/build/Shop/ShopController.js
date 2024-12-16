@@ -18,6 +18,26 @@ class ShopController {
         this._currentTopic = document.querySelector('.topics__item');
         this._priceRange = document.querySelector('.price__range');
         this._priceValue = document.querySelector('.price__value');
+        this._searchInput = document.querySelector('.search__input');
+        this._searchButton = document.querySelector('.search__button');
+        this._searchButton.addEventListener('click', () => {
+            let filteredItems = [];
+            if (this._currentTopic.value == '') {
+                this._shopItemsRenderer.updateRender();
+            }
+            else if (this._currentTopic.value == 'All') {
+                filteredItems = this._shopFiltrator.filterByName(this._searchInput.value);
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+            }
+            else {
+                filteredItems = this._shopFiltrator.filterByNameAndCategory(this._searchInput.value, this._currentTopic.value);
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+            }
+        });
+        window.addEventListener('keypress', (event) => {
+            if (event.key == 'Enter')
+                this._searchButton.click();
+        });
         this._shopItemsRenderer.renderItems();
         this.setCheckboxes();
         (_a = document.querySelector('.cart-menu__close')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', this.setCheckboxes.bind(this));

@@ -27,4 +27,20 @@ class ShopFiltrator {
         });
         return filteredItems;
     }
+    filterByNameAndCategory(itemName, categoryName) {
+        let filteredItems = [];
+        this._items.forEach((item) => {
+            if ((item.name).toLowerCase().includes(itemName.toLowerCase()) && item.category == categoryName)
+                filteredItems.push(item);
+        });
+        return filteredItems;
+    }
+    filterByName(itemName) {
+        let filteredItems = [];
+        this._items.forEach((item) => {
+            if ((item.name).toLowerCase().includes(itemName.toLowerCase()))
+                filteredItems.push(item);
+        });
+        return filteredItems;
+    }
 }

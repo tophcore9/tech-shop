@@ -18,6 +18,9 @@ class ShopController {
 
     private _priceRange: HTMLInputElement;
     private _priceValue: HTMLElement;
+    
+    private _searchInput: HTMLInputElement;
+    private _searchButton: HTMLButtonElement;
 
     constructor(shopItemsRenderer: ShopItemsRenderer, cartItemsRenderer: CartItemsRenderer) {
         this._shopItemsRenderer = shopItemsRenderer;
@@ -29,6 +32,28 @@ class ShopController {
 
         this._priceRange = document.querySelector('.price__range') as HTMLInputElement;
         this._priceValue = document.querySelector('.price__value') as HTMLElement;
+        
+        this._searchInput = document.querySelector('.search__input') as HTMLInputElement;
+        this._searchButton = document.querySelector('.search__button') as HTMLButtonElement;
+        this._searchButton.addEventListener('click', () => {
+            let filteredItems: Item[] = [];
+
+            if (this._currentTopic.value == '') {
+                this._shopItemsRenderer.updateRender();
+            }
+            else if (this._currentTopic.value == 'All') {
+                filteredItems = this._shopFiltrator.filterByName(this._searchInput.value);
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+            } 
+            else {
+                filteredItems = this._shopFiltrator.filterByNameAndCategory(this._searchInput.value, this._currentTopic.value);
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+            }
+
+        })
+        window.addEventListener('keypress', (event) => {
+            if (event.key == 'Enter') this._searchButton.click();
+        })
 
         this._shopItemsRenderer.renderItems();
         this.setCheckboxes();

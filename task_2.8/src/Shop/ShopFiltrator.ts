@@ -34,4 +34,24 @@ class ShopFiltrator {
 
         return filteredItems;
     }
+
+    public filterByNameAndCategory(itemName: string, categoryName: string): Item[] {
+        let filteredItems: Item[] = [];
+
+        this._items.forEach((item) => {
+            if ((item.name).toLowerCase().includes(itemName.toLowerCase()) && item.category == categoryName) filteredItems.push(item);
+        });
+
+        return filteredItems;
+    }
+
+    public filterByName(itemName: string) {
+        let filteredItems: Item[] = [];
+
+        this._items.forEach((item) => {
+            if ((item.name).toLowerCase().includes(itemName.toLowerCase())) filteredItems.push(item);
+        });
+
+        return filteredItems;
+    }
 }
