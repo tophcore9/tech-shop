@@ -14,6 +14,12 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
         this._items.push({...item, count: 1});
         this.saveCartItems();
     }
+    
+    public removeItem(itemId: number): boolean {
+        const res = super.removeItem(itemId);
+        this.saveCartItems();
+        return res;
+    }
 
     /* Counting the total value of the each items in the cart */
     public getTotalValue(): number {

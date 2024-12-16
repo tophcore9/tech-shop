@@ -17,6 +17,7 @@ class ShopController {
         this._cartItemsRenderer = cartItemsRenderer;
 
         this._shopItemsRenderer.renderItems();
+        this.setCheckboxes();
 
         [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
             checkbox.addEventListener('click', (event) => {
@@ -33,6 +34,15 @@ class ShopController {
                     this._cartItemsRenderer.updateRender();
                 }
             });
+        });
+    }
+
+    public setCheckboxes() {
+        [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
+            const parent = checkbox.parentElement;
+            const parentId = Number(parent?.dataset.id as string);
+
+            if (this._cartItemsRenderer.manager.findItem(parentId)) checkbox.checked = true;
         });
     }
 }

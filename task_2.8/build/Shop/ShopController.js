@@ -13,6 +13,7 @@ class ShopController {
         this._shopItemsRenderer = shopItemsRenderer;
         this._cartItemsRenderer = cartItemsRenderer;
         this._shopItemsRenderer.renderItems();
+        this.setCheckboxes();
         [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
             checkbox.addEventListener('click', (event) => {
                 const currentItem = event.target;
@@ -28,6 +29,14 @@ class ShopController {
                     this._cartItemsRenderer.updateRender();
                 }
             });
+        });
+    }
+    setCheckboxes() {
+        [...this._shopItemsRenderer.checkboxes].forEach((checkbox) => {
+            const parent = checkbox.parentElement;
+            const parentId = Number(parent === null || parent === void 0 ? void 0 : parent.dataset.id);
+            if (this._cartItemsRenderer.manager.findItem(parentId))
+                checkbox.checked = true;
         });
     }
 }

@@ -9,6 +9,11 @@ class CartItemsManager extends BaseItemsManager {
         this._items.push(Object.assign(Object.assign({}, item), { count: 1 }));
         this.saveCartItems();
     }
+    removeItem(itemId) {
+        const res = super.removeItem(itemId);
+        this.saveCartItems();
+        return res;
+    }
     /* Counting the total value of the each items in the cart */
     getTotalValue() {
         let totalValue = 0;

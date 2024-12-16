@@ -1,17 +1,19 @@
-class ShopItemsRenderer extends BaseItemsRenderer<Item,ShopItemsManager> {
+class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
     private _cardCheckboxes: HTMLCollectionOf<HTMLInputElement>;
 
     constructor(itemsWrapperClassName: string, shopItemsManager: ShopItemsManager) {
         super(itemsWrapperClassName, shopItemsManager);
-        
-        this._cardCheckboxes = this._wrapperClass.getElementsByClassName('add-card__checkbox') as HTMLCollectionOf<HTMLInputElement>;
+
+        this._cardCheckboxes = this._wrapperClass.getElementsByClassName(
+            'add-card__checkbox',
+        ) as HTMLCollectionOf<HTMLInputElement>;
     }
-    
+
     public get checkboxes(): HTMLCollectionOf<HTMLInputElement> {
         return this._cardCheckboxes;
     }
 
-    public renderItem(item: CartItem): void {
+    public renderItem(item: Item): void {
         this._wrapperClass.innerHTML += `
             <div class="shop__card" data-id="${item.id}">
                 <input type="checkbox" class="add-card__checkbox">
