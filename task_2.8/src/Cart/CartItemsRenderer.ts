@@ -3,13 +3,13 @@ class CartItemsRenderer extends BaseItemsRenderer<CartItem, CartItemsManager> {
 
     constructor(itemsWrapperClassName: string, cartManager: CartItemsManager) {
         super(itemsWrapperClassName, cartManager);
-        
+
         this._totalPrice = document.querySelector('.total-price') as HTMLElement;
         this.updateTotalValue();
     }
 
     public renderItem(item: CartItem): void {
-       this._wrapperClass.innerHTML += `
+        this._wrapperClass.innerHTML += `
             <div class="cart-menu__item" data-id="${item.id}">
                 <div class="cart-item__left">
                     <img class="cart-item__picture" src="${item.imageUrl}" alt="">
@@ -30,7 +30,7 @@ class CartItemsRenderer extends BaseItemsRenderer<CartItem, CartItemsManager> {
         `;
         this.updateTotalValue();
     }
-    
+
     public updateTotalValue() {
         this._totalPrice.innerHTML = '$' + this.manager.getTotalValue();
     }

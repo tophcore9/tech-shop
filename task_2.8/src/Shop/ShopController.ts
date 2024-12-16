@@ -43,6 +43,7 @@ class ShopController {
             const parentId = Number(parent?.dataset.id as string);
 
             if (this._cartItemsRenderer.manager.findItem(parentId)) checkbox.checked = true;
+            else checkbox.checked = false;
         });
     }
 }

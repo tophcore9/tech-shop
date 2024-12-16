@@ -21,4 +21,7 @@ class BaseItemsRenderer {
     get manager() {
         return this._manager;
     }
+    get wrapperClass() {
+        return this._wrapperClass;
+    }
 }

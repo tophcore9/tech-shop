@@ -30,4 +30,8 @@ abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsM
     public get manager(): TManager {
         return this._manager;
     }
+    
+    public get wrapperClass(): HTMLElement {
+        return this._wrapperClass;
+    }
 }

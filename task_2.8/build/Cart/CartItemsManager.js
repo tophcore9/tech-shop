@@ -18,19 +18,27 @@ class CartItemsManager extends BaseItemsManager {
     getTotalValue() {
         let totalValue = 0;
         this._items.forEach((item) => {
-            totalValue += item.price;
+            totalValue += item.price * item.count;
         });
         return totalValue;
     }
     increaseItemCount(itemId) {
         const foundItem = this.findItem(itemId);
-        if (foundItem != null)
+        if (foundItem != null) {
             foundItem.count++;
+            this.saveCartItems();
+            return foundItem.count;
+        }
+        return 0;
     }
     decreaseItemCount(itemId) {
         const foundItem = this.findItem(itemId);
-        if (foundItem != null)
+        if (foundItem != null) {
             foundItem.count--;
+            this.saveCartItems();
+            return foundItem.count;
+        }
+        return 0;
     }
     /* Loading menu cart items from localStorage */
     loadCartItems() {

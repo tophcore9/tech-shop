@@ -26,6 +26,25 @@ class CartMenuController {
 
         this._navMenuCartButton.addEventListener('click', this.showCart.bind(this));
         this._cartMenuCloseButton.addEventListener('click', this.hideCart.bind(this));
+        
+        this._cartItemsRenderer.wrapperClass.addEventListener('click', (event) => {
+            const target = event.target as HTMLElement;
+            const targetItem = target.parentElement?.parentElement?.parentElement as HTMLElement;
+            const targetItemId = Number(targetItem.dataset.id as string)
+
+            if (targetItem.querySelector('.cart-item__minus') == event.target) {
+                const currentCount = this._cartItemsRenderer.manager.decreaseItemCount(targetItemId);
+                const quantityField = targetItem.querySelector('.cart-item__quantity') as HTMLElement;
+                quantityField.innerHTML = currentCount.toString();
+                this._cartItemsRenderer.updateRender();
+            }
+            else if (targetItem.querySelector('.cart-item__plus') == event.target) {
+                const currentCount = this._cartItemsRenderer.manager.increaseItemCount(targetItemId);
+                const quantityField = targetItem.querySelector('.cart-item__quantity') as HTMLElement;
+                quantityField.innerHTML = currentCount.toString();
+                this._cartItemsRenderer.updateRender();
+            }
+        })
     }
 
     public showCart() {

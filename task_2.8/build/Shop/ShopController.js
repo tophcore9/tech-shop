@@ -37,6 +37,8 @@ class ShopController {
             const parentId = Number(parent === null || parent === void 0 ? void 0 : parent.dataset.id);
             if (this._cartItemsRenderer.manager.findItem(parentId))
                 checkbox.checked = true;
+            else
+                checkbox.checked = false;
         });
     }
 }

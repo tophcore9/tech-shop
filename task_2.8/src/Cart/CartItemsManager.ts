@@ -26,22 +26,34 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
         let totalValue = 0;
 
         this._items.forEach((item) => {
-            totalValue += item.price;
+            totalValue += item.price * item.count;
         });
 
         return totalValue;
     }
     
-    public increaseItemCount(itemId: number) {
+    public increaseItemCount(itemId: number): number {
         const foundItem = this.findItem(itemId);
         
-        if (foundItem != null) foundItem.count++;
+        if (foundItem != null) {
+            foundItem.count++;
+            this.saveCartItems();
+            return foundItem.count;
+        }
+        
+        return 0;
     }
 
-    public decreaseItemCount(itemId: number) {
+    public decreaseItemCount(itemId: number): number {
         const foundItem = this.findItem(itemId);
         
-        if (foundItem != null) foundItem.count--
+        if (foundItem != null) {
+            foundItem.count--;
+            this.saveCartItems();
+            return foundItem.count;
+        }
+        
+        return 0;
     }
 
     /* Loading menu cart items from localStorage */
