@@ -29,6 +29,12 @@ class BaseItemsRenderer {
         this.removeRender();
         this.renderCustomItems(items);
     }
+    findHTMLElements(className, rootElement = this._wrapperClass) {
+        return rootElement.getElementsByClassName(className);
+    }
+    findHTMLElement(className, rootElement = this._wrapperClass) {
+        return rootElement.querySelector('.' + className);
+    }
     /* Get manager */
     get manager() {
         return this._manager;

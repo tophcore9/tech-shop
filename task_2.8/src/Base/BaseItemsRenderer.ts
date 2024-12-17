@@ -40,6 +40,14 @@ abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsM
         this.renderCustomItems(items);
     }
 
+    public findHTMLElements(className: string, rootElement: HTMLElement | Document = this._wrapperClass): HTMLCollectionOf<HTMLElement> {
+        return rootElement.getElementsByClassName(className) as HTMLCollectionOf<HTMLElement>;
+    }
+    
+    public findHTMLElement(className: string, rootElement: HTMLElement | Document = this._wrapperClass): HTMLElement {
+        return rootElement.querySelector('.' + className) as HTMLElement;
+    }
+
     /* Get manager */
     public get manager(): TManager {
         return this._manager;

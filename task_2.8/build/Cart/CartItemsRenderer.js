@@ -2,7 +2,7 @@
 class CartItemsRenderer extends BaseItemsRenderer {
     constructor(itemsWrapperClassName, cartManager) {
         super(itemsWrapperClassName, cartManager);
-        this._totalPrice = document.querySelector('.total-price');
+        this._totalPrice = this.findHTMLElement('total-price', document);
     }
     /* Rendering an exact item to the wrapper HTML class */
     renderItem(item) {

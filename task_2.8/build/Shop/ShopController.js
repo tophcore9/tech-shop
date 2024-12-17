@@ -14,7 +14,7 @@ class ShopController {
         this._shopItemsRenderer = shopItemsRenderer;
         this._cartItemsRenderer = cartItemsRenderer;
         this._shopFiltrator = new ShopFiltrator(this._shopItemsRenderer.manager.items);
-        this._topics = document.getElementsByClassName('topic-item__radio');
+        this._topics = this._topics = document.getElementsByClassName('topic-item__radio');
         this._currentTopic = document.querySelector('.topics__item');
         this._priceRange = document.querySelector('.price__range');
         this._priceValue = document.querySelector('.price__value');
