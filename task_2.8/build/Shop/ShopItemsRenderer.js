@@ -28,4 +28,15 @@ class ShopItemsRenderer extends BaseItemsRenderer {
         }
         return resultHTML;
     }
+    setCheckboxes(cartItems) {
+        const checkboxes = document.getElementsByClassName('add-card__checkbox');
+        [...checkboxes].forEach((checkbox) => {
+            const parent = checkbox.parentElement;
+            const parentId = Number(parent === null || parent === void 0 ? void 0 : parent.dataset.id);
+            cartItems.forEach((cartItem) => {
+                if (cartItem.id == parentId)
+                    checkbox.checked = true;
+            });
+        });
+    }
 }

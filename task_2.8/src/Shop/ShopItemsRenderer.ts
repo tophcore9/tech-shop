@@ -31,4 +31,17 @@ class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
 
         return resultHTML;
     }
+
+    public setCheckboxes(cartItems: CartItem[]) {
+        const checkboxes = document.getElementsByClassName('add-card__checkbox') as HTMLCollectionOf<HTMLInputElement>;
+
+        [...checkboxes].forEach((checkbox) => {
+            const parent = checkbox.parentElement;
+            const parentId = Number(parent?.dataset.id as string);
+
+            cartItems.forEach((cartItem) => {
+                if (cartItem.id == parentId) checkbox.checked = true;
+            })
+        });
+    }
 }

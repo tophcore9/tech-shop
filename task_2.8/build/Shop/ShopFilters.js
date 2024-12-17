@@ -17,11 +17,11 @@ class ShopFilters {
                 this._shopItemsRenderer.updateRender();
             }
             else if (this._currentTopic.value == 'All') {
-                filteredItems = this._filtrator.filterByName(this._searchInput.value);
+                filteredItems = Filtrator.filterByName(this._items, this._searchInput.value);
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
             }
             else {
-                filteredItems = this._filtrator.filterByNameInCategory(this._searchInput.value, this._currentTopic.value);
+                filteredItems = Filtrator.filterByNameInCategory(this._items, this._searchInput.value, this._currentTopic.value);
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
             }
         });
@@ -33,7 +33,7 @@ class ShopFilters {
             topic.addEventListener('click', () => {
                 let filteredItems = this._shopItemsRenderer.manager.items;
                 if (topic.value != 'All') {
-                    filteredItems = this._filtrator.filterByCategory(topic.value);
+                    filteredItems = Filtrator.filterByCategory(this._items, topic.value);
                     this._shopItemsRenderer.updateCustomRender(filteredItems);
                 }
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
@@ -52,10 +52,10 @@ class ShopFilters {
         (_b = document.querySelector('.price__range')) === null || _b === void 0 ? void 0 : _b.addEventListener('change', () => {
             let filteredItems = [];
             if (this._currentTopic.value != 'All') {
-                filteredItems = this._filtrator.filterByPriceInCategory(Number(this._priceRange.value), this._currentTopic.value);
+                filteredItems = Filtrator.filterByPriceInCategory(this._items, Number(this._priceRange.value), this._currentTopic.value);
             }
             else {
-                filteredItems = this._filtrator.filterByPrice(Number(this._priceRange.value));
+                filteredItems = Filtrator.filterByPrice(this._items, Number(this._priceRange.value));
             }
             this._shopItemsRenderer.updateCustomRender(filteredItems);
             this._shopItemsRenderer.setCheckboxes(this._cartItems);
