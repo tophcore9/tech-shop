@@ -35,8 +35,9 @@ class ShopItemsRenderer extends BaseItemsRenderer {
     setCheckboxes(cartItems) {
         const checkboxes = document.getElementsByClassName('add-card__checkbox');
         [...checkboxes].forEach((checkbox) => {
-            const parent = checkbox.parentElement;
-            const parentId = Number(parent === null || parent === void 0 ? void 0 : parent.dataset.id);
+            var _a;
+            const parentId = Number((_a = checkbox.parentElement) === null || _a === void 0 ? void 0 : _a.dataset.id);
+            checkbox.checked = false;
             cartItems.forEach((cartItem) => {
                 if (cartItem.id == parentId)
                     checkbox.checked = true;

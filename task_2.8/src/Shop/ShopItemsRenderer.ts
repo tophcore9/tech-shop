@@ -40,8 +40,8 @@ class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
         const checkboxes = document.getElementsByClassName('add-card__checkbox') as HTMLCollectionOf<HTMLInputElement>;
 
         [...checkboxes].forEach((checkbox) => {
-            const parent = checkbox.parentElement;
-            const parentId = Number(parent?.dataset.id as string);
+            const parentId = Number(checkbox.parentElement?.dataset.id as string);
+            checkbox.checked = false;
 
             cartItems.forEach((cartItem) => {
                 if (cartItem.id == parentId) checkbox.checked = true;
