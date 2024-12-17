@@ -52,7 +52,12 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
         const foundItem = this.findItem(itemId);
 
         if (foundItem != null) {
-            foundItem.count--;
+            if (foundItem.count > 1) {
+                foundItem.count--;
+            } else {
+                this.removeItem(itemId);
+            }
+
             this.saveCartItems();
             return foundItem.count;
         }
