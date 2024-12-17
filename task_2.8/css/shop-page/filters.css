@@ -60,6 +60,7 @@
 }
 .topic-item__label:hover {
   cursor: pointer;
+  outline: 1px solid #CC5520;
 }
 
 .topic-item__radio {
@@ -67,6 +68,7 @@
 }
 .topic-item__radio:checked + label {
   background-color: #CC5520;
+  outline: 1px solid #CC5520;
   color: white;
 }
 

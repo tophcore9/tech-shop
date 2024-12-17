@@ -70,6 +70,7 @@
     
     &:hover {
         cursor: pointer;
+        outline: 1px solid #CC5520;
     }
 }
 
@@ -78,6 +79,7 @@
 
     &:checked + label {
         background-color: #CC5520;
+        outline: 1px solid #CC5520;
         color: white;
     }
 }

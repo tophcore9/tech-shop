@@ -6,7 +6,18 @@
     margin-bottom: 70px;
 
     display: flex;
+    justify-content: center;
     gap: 50px;
+}
+
+@media (max-width: 940px) {
+    .history-block {
+        flex-wrap: wrap;
+    }
+    
+    .history-second-block {
+        flex-wrap: wrap-reverse;
+    }
 }
 
 .history-block__title {
@@ -19,12 +30,18 @@
 }
 
 .history-block__text {
+    min-width: 400px;
     color: #484848;
     font-size: 20px;
     line-height: 30px;
 }
 
 .history-block__picture {
-    max-width: 470px;
     max-height: 600px;
+}
+
+@media (max-width: 940px) {
+    .history-block__picture {
+        height: min-content;
+    }
 }

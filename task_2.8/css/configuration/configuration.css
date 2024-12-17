@@ -9,4 +9,10 @@ body, html {
   max-width: 1300px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
+}
+
+@media (max-width: 550px) {
+  .wrapper {
+    padding: 0px 40px;
+  }
 }/*# sourceMappingURL=configuration.css.map */
