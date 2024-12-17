@@ -19,17 +19,21 @@ class BaseItemsRenderer {
     removeRender() {
         this._wrapperClass.innerHTML = '';
     }
+    /* Removing all render and updating it then */
     updateRender() {
         this.removeRender();
         this.renderItems();
     }
+    /* Render custom collection of items in other sequence */
     updateCustomRender(items) {
         this.removeRender();
         this.renderCustomItems(items);
     }
+    /* Get manager */
     get manager() {
         return this._manager;
     }
+    /* Get wrapper class in HTML for the items */
     get wrapperClass() {
         return this._wrapperClass;
     }

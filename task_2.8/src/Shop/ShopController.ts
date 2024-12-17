@@ -12,7 +12,6 @@ class ShopController {
     private _shopItemsRenderer: ShopItemsRenderer;
     private _cartItemsRenderer: CartItemsRenderer;
     private _shopFiltrator: ShopFiltrator;
-
     private _topics: HTMLCollectionOf<HTMLInputElement>;
     private _currentTopic: HTMLInputElement;
 
@@ -124,6 +123,7 @@ class ShopController {
             }
 
             this._shopItemsRenderer.updateCustomRender(filteredItems);
+            this.setCheckboxes();
         });
     }
 

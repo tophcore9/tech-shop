@@ -87,6 +87,7 @@ class ShopController {
                 filteredItems = this._shopFiltrator.filterByPrice(Number(this._priceRange.value));
             }
             this._shopItemsRenderer.updateCustomRender(filteredItems);
+            this.setCheckboxes();
         });
     }
     setCheckboxes() {

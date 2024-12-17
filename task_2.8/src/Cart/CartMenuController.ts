@@ -31,23 +31,32 @@ class CartMenuController {
             const target = event.target as HTMLElement;
             const targetItem = target.parentElement?.parentElement?.parentElement as HTMLElement;
             const targetItemId = Number(targetItem.dataset.id as string);
+            const quantityField = targetItem.querySelector('.cart-item__quantity') as HTMLElement;
 
-            if (event.target == targetItem.querySelector('.cart-item__minus')) {
+            if (this.isTargetButton(targetItem, target, 'cart-item__minus')) {
                 const currentCount = this._cartItemsRenderer.manager.decreaseItemCount(targetItemId);
-                const quantityField = targetItem.querySelector('.cart-item__quantity') as HTMLElement;
                 quantityField.innerHTML = currentCount.toString();
-                this._cartItemsRenderer.updateRender();
-            } else if (event.target == targetItem.querySelector('.cart-item__plus')) {
+            } else if (this.isTargetButton(targetItem, target, 'cart-item__plus')) {
                 const currentCount = this._cartItemsRenderer.manager.increaseItemCount(targetItemId);
-                const quantityField = targetItem.querySelector('.cart-item__quantity') as HTMLElement;
                 quantityField.innerHTML = currentCount.toString();
-                this._cartItemsRenderer.updateRender();
-            } else if (event.target == targetItem.querySelector('.cart-item__remove-button')) {
+            } else if (this.isTargetButton(targetItem, target, 'cart-item__remove-button')) {
                 this._cartItemsRenderer.manager.removeItem(targetItemId);
-                this._cartItemsRenderer.updateRender();
-                this._cartItemsRenderer.updateTotalValue();
             }
+
+            this._cartItemsRenderer.updateRender();
         });
+    }
+
+    private handleIncrease() {}
+
+    private handleDecrease() {}
+
+    private handleRemove() {}
+
+    private isTargetButton(rootElement: HTMLElement, target: HTMLElement, className: string): boolean {
+        if (target == rootElement.querySelector('.' + className)) return true;
+
+        return false;
     }
 
     public showCart() {

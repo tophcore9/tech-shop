@@ -5,10 +5,12 @@ class CartItemsManager extends BaseItemsManager {
         this._cartItemsField = 'cartItems';
         this.loadCartItems();
     }
+    /* Adding an item to the cart */
     addItem(item) {
         this._items.push(Object.assign(Object.assign({}, item), { count: 1 }));
         this.saveCartItems();
     }
+    /* Removing an item from the cart */
     removeItem(itemId) {
         const res = super.removeItem(itemId);
         this.saveCartItems();
@@ -22,6 +24,7 @@ class CartItemsManager extends BaseItemsManager {
         });
         return totalValue;
     }
+    /* Incrementing a count of the exact item in the cart */
     increaseItemCount(itemId) {
         const foundItem = this.findItem(itemId);
         if (foundItem != null) {
@@ -31,6 +34,7 @@ class CartItemsManager extends BaseItemsManager {
         }
         return 0;
     }
+    /* Decrementing a count of the exact item in the cart */
     decreaseItemCount(itemId) {
         const foundItem = this.findItem(itemId);
         if (foundItem != null) {

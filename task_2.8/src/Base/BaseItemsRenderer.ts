@@ -28,20 +28,24 @@ abstract class BaseItemsRenderer<TItem extends Item, TManager extends BaseItemsM
         this._wrapperClass.innerHTML = '';
     }
 
+    /* Removing all render and updating it then */
     public updateRender() {
         this.removeRender();
         this.renderItems();
     }
 
+    /* Render custom collection of items in other sequence */
     public updateCustomRender(items: TItem[]) {
         this.removeRender();
         this.renderCustomItems(items);
     }
 
+    /* Get manager */
     public get manager(): TManager {
         return this._manager;
     }
 
+    /* Get wrapper class in HTML for the items */
     public get wrapperClass(): HTMLElement {
         return this._wrapperClass;
     }

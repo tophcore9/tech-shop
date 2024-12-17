@@ -10,11 +10,13 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
         this.loadCartItems();
     }
 
+    /* Adding an item to the cart */
     public addItem(item: CartItem): void {
         this._items.push({ ...item, count: 1 });
         this.saveCartItems();
     }
 
+    /* Removing an item from the cart */
     public removeItem(itemId: number): boolean {
         const res = super.removeItem(itemId);
         this.saveCartItems();
@@ -32,6 +34,7 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
         return totalValue;
     }
 
+    /* Incrementing a count of the exact item in the cart */
     public increaseItemCount(itemId: number): number {
         const foundItem = this.findItem(itemId);
 
@@ -44,6 +47,7 @@ class CartItemsManager extends BaseItemsManager<CartItem> {
         return 0;
     }
 
+    /* Decrementing a count of the exact item in the cart */
     public decreaseItemCount(itemId: number): number {
         const foundItem = this.findItem(itemId);
 

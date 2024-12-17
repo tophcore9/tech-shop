@@ -3,8 +3,8 @@ class CartItemsRenderer extends BaseItemsRenderer {
     constructor(itemsWrapperClassName, cartManager) {
         super(itemsWrapperClassName, cartManager);
         this._totalPrice = document.querySelector('.total-price');
-        this.updateTotalValue();
     }
+    /* Rendering an exact item to the wrapper HTML class */
     renderItem(item) {
         this._wrapperClass.innerHTML += `
             <div class="cart-menu__item" data-id="${item.id}">
@@ -27,8 +27,13 @@ class CartItemsRenderer extends BaseItemsRenderer {
                 </div>
             </div>
         `;
+    }
+    /* Overloading updateRender for updating totalValue too */
+    updateRender() {
+        super.updateRender();
         this.updateTotalValue();
     }
+    /* Updating total value by recalculating it */
     updateTotalValue() {
         this._totalPrice.innerHTML = '$' + this.manager.getTotalValue();
     }

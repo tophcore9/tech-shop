@@ -6,7 +6,7 @@ class ShopItemsManager extends BaseItemsManager<Item> {
         this._itemsJsonUrl = '../items.json';
     }
 
-    /* Get the max price  */
+    /* Get the max price of the all items */
     public getMaxPrice(): Number {
         let maxPrice = 0;
 
