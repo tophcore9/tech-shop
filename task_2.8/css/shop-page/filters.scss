@@ -1,17 +1,10 @@
-.header {
-    margin-bottom: 24px;
-    background-color: #F9F9F9;
-}
-
 /* FILTERS PART */
 
-.shop-content {
-    padding-bottom: 200px;
-    
-    display: flex;
-}
-
 .filter-menu {
+    // border: 1px solid black;
+    height: fit-content;
+    position: sticky;
+    top: 24px;
     margin-right: 60px;
 
     min-width: 200px;

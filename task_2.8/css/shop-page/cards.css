@@ -1,4 +1,14 @@
 @charset "UTF-8";
+.header {
+  margin-bottom: 24px;
+  background-color: #F9F9F9;
+}
+
+.shop-content {
+  padding-bottom: 200px;
+  display: flex;
+}
+
 .shop-cards {
   width: 100%;
   display: flex;
@@ -11,6 +21,9 @@
   min-width: 275px;
   width: calc(50% - 28px);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #F3F3F3;
 }
 
@@ -33,6 +46,17 @@
   gap: 25px;
   font-size: 18px;
   font-weight: 700;
+}
+
+.card-info__block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info__name {
+  max-width: 80%;
+  line-height: 25px;
 }
 
 .card-info__rating {

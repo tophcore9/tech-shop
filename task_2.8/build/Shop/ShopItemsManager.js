@@ -22,6 +22,15 @@ class ShopItemsManager extends BaseItemsManager {
         });
         return maxPrice;
     }
+    /* Get the min price of the all items */
+    getMinPrice() {
+        let minPrice = this._items[0].price;
+        for (let i = 1; i < this._items.length; ++i) {
+            if (this._items[i].price < minPrice)
+                minPrice = this._items[i].price;
+        }
+        return minPrice;
+    }
     /* Loading items from JSON file */
     loadItemsFromJson() {
         return __awaiter(this, arguments, void 0, function* (JsonUrl = this._itemsJsonUrl) {

@@ -11,6 +11,7 @@ class ShopFilters {
         this._shopItemsRenderer = renderer;
         this._items = this._shopItemsRenderer.manager.items;
         this._cartItems = cartItems;
+        this.initPriceRange();
         this._searchButton.addEventListener('click', () => {
             let filteredItems = [];
             if (this._currentTopic.value == '') {
@@ -40,15 +41,11 @@ class ShopFilters {
                 this._shopItemsRenderer.setCheckboxes(this._cartItems);
                 this._currentTopic = topic;
                 this._priceRange.value = this._priceRange.max;
-                this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
+                this.updatePriceValue();
+                document.documentElement.scrollTop = 0;
             });
         });
-        this._priceRange.max = this._shopItemsRenderer.manager.getMaxPrice().toString();
-        this._priceRange.value = this._priceRange.max;
-        this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
-        (_a = document.querySelector('.price__range')) === null || _a === void 0 ? void 0 : _a.addEventListener('input', () => {
-            this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
-        });
+        (_a = document.querySelector('.price__range')) === null || _a === void 0 ? void 0 : _a.addEventListener('input', this.updatePriceValue.bind(this));
         (_b = document.querySelector('.price__range')) === null || _b === void 0 ? void 0 : _b.addEventListener('change', () => {
             let filteredItems = [];
             if (this._currentTopic.value != 'All') {
@@ -60,5 +57,14 @@ class ShopFilters {
             this._shopItemsRenderer.updateCustomRender(filteredItems);
             this._shopItemsRenderer.setCheckboxes(this._cartItems);
         });
+    }
+    initPriceRange() {
+        this._priceRange.max = this._shopItemsRenderer.manager.getMaxPrice().toString();
+        this._priceRange.min = this._shopItemsRenderer.manager.getMinPrice().toString();
+        this._priceRange.value = this._priceRange.max;
+        this.updatePriceValue();
+    }
+    updatePriceValue() {
+        this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
     }
 }

@@ -17,6 +17,8 @@ class ShopFilters {
         this._items = this._shopItemsRenderer.manager.items;
         this._cartItems = cartItems;
 
+        this.initPriceRange();
+
         this._searchButton.addEventListener('click', () => {
             let filteredItems: Item[] = [];
 
@@ -26,10 +28,15 @@ class ShopFilters {
                 filteredItems = Filtrator.filterByName(this._items, this._searchInput.value);
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
             } else {
-                filteredItems = Filtrator.filterByNameInCategory(this._items, this._searchInput.value, this._currentTopic.value);
+                filteredItems = Filtrator.filterByNameInCategory(
+                    this._items,
+                    this._searchInput.value,
+                    this._currentTopic.value,
+                );
                 this._shopItemsRenderer.updateCustomRender(filteredItems);
             }
         });
+
         window.addEventListener('keypress', (event) => {
             if (event.key == 'Enter') this._searchButton.click();
         });
@@ -48,23 +55,22 @@ class ShopFilters {
 
                 this._currentTopic = topic;
                 this._priceRange.value = this._priceRange.max;
-                this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
+                this.updatePriceValue();
+                
+                document.documentElement.scrollTop = 0;
             });
         });
 
-        this._priceRange.max = this._shopItemsRenderer.manager.getMaxPrice().toString();
-        this._priceRange.value = this._priceRange.max;
-        this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
-
-        document.querySelector('.price__range')?.addEventListener('input', () => {
-            this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
-        });
-
+        document.querySelector('.price__range')?.addEventListener('input', this.updatePriceValue.bind(this));
         document.querySelector('.price__range')?.addEventListener('change', () => {
             let filteredItems: Item[] = [];
 
             if (this._currentTopic.value != 'All') {
-                filteredItems = Filtrator.filterByPriceInCategory(this._items, Number(this._priceRange.value), this._currentTopic.value);
+                filteredItems = Filtrator.filterByPriceInCategory(
+                    this._items,
+                    Number(this._priceRange.value),
+                    this._currentTopic.value,
+                );
             } else {
                 filteredItems = Filtrator.filterByPrice(this._items, Number(this._priceRange.value));
             }
@@ -72,5 +78,16 @@ class ShopFilters {
             this._shopItemsRenderer.updateCustomRender(filteredItems);
             this._shopItemsRenderer.setCheckboxes(this._cartItems);
         });
+    }
+
+    private initPriceRange() {
+        this._priceRange.max = this._shopItemsRenderer.manager.getMaxPrice().toString();
+        this._priceRange.min = this._shopItemsRenderer.manager.getMinPrice().toString();
+        this._priceRange.value = this._priceRange.max;
+        this.updatePriceValue();
+    }
+
+    private updatePriceValue() {
+        this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
     }
 }

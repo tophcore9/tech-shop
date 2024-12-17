@@ -10,12 +10,16 @@ class ShopItemsRenderer extends BaseItemsRenderer<Item, ShopItemsManager> {
                 <input type="checkbox" class="add-card__checkbox">
                 <img class="card__picture" src="${item.imageUrl}" alt="">
                 <div class="card-info">
-                    <span class="card-info__name">${item.name}</span>
-                    <span class="card-info__price">$${item.price}</span>
-                    <div class="card-info__rating">
-                    ${this.renderStars(item.ratingStars)}
+                    <div class="card-info__block">
+                        <span class="card-info__name">${item.name}</span>
+                        <span class="card-info__price">$${item.price}</span>
                     </div>
-                    <span class="card-info__category">${item.category}</span>
+                    <div class="card-info__block">
+                        <span class="card-info__category">${item.category}</span>
+                        <div class="card-info__rating">
+                        ${this.renderStars(item.ratingStars)}
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
