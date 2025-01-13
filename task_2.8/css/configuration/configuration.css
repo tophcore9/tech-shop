@@ -12,9 +12,14 @@ body, html {
   font-weight: 400;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 830px) {
   .wrapper {
     padding: 0px 40px;
+  }
+}
+@media (max-width: 550px) {
+  .wrapper {
+    padding: 0px 20px;
   }
 }
 .to-the-top {
@@ -30,4 +35,10 @@ body, html {
 }
 .to-the-top:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 830px) {
+  .to-the-top {
+    display: none;
+  }
 }/*# sourceMappingURL=configuration.css.map */

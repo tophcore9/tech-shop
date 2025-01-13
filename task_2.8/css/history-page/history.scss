@@ -1,6 +1,11 @@
 .history {
     margin-bottom: 150px;
 }
+@media (max-width: 475px) {
+    .history {
+        margin-bottom: 10px;
+    }
+}
 
 .history-block {
     margin-bottom: 70px;
@@ -9,7 +14,6 @@
     justify-content: center;
     gap: 50px;
 }
-
 @media (max-width: 940px) {
     .history-block {
         flex-wrap: wrap;
@@ -35,9 +39,19 @@
     font-size: 20px;
     line-height: 30px;
 }
+@media (max-width: 475px) {
+    .history-block__text {
+        min-width: 100%;
+    }
+}
 
 .history-block__picture {
     max-height: 600px;
+}
+@media (max-width: 475px) {
+    .history-block__picture {
+        min-width: 100%;
+    }
 }
 
 @media (max-width: 940px) {

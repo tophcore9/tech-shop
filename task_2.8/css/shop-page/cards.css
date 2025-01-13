@@ -9,6 +9,11 @@
   display: flex;
 }
 
+@media (max-width: 475px) {
+  .shop-content {
+    flex-direction: column;
+  }
+}
 .shop-cards {
   width: 100%;
   display: flex;
@@ -17,6 +22,11 @@
   gap: 20px 55px;
 }
 
+@media (max-width: 1075px) {
+  .shop-cards {
+    gap: 20px;
+  }
+}
 .shop__card {
   min-width: 275px;
   width: calc(50% - 28px);
@@ -28,6 +38,16 @@
   border: 1px solid #F3F3F3;
 }
 
+@media (max-width: 975px) {
+  .shop__card {
+    min-width: 200px;
+  }
+}
+@media (max-width: 705px) {
+  .shop__card {
+    width: 100%;
+  }
+}
 .shop__card-hidden {
   display: none;
 }
