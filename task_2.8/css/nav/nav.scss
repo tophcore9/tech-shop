@@ -16,7 +16,7 @@
         height: 100vh;
         width: 100%;
         position: fixed;
-        top: 360px;
+        top: 400px;
     }
 }
 @media (max-width: 475px) {
@@ -59,6 +59,7 @@
 @media (max-width: 475px) {
     .nav-items {
         flex-direction: column;
+        gap: 35px;
     }
 }
 
@@ -131,7 +132,7 @@
 }
 
 .close-nav-more {
-    margin-top: 40px;
+    margin-top: 25px;
 
     display: none;
 }
@@ -151,7 +152,7 @@
 }
 
 .nav-shown {
-    height: 360px;
+    height: 400px;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 1;
         
