@@ -43,10 +43,22 @@
     font-weight: 700;
     line-height: 90px;
 }
+@media (max-width: 675px) {
+    .header-preview__title {
+        margin-bottom: 10px;
+        font-size: 50px;
+    }
+}
 
 .header-preview__description {
     max-width: 500px;
 
     font-size: 20px;
     line-height: 30px;
+}
+@media (max-width: 675px) {
+    .header-preview__description {
+        font-size: 16px;
+        max-width: 200px;
+    }
 }

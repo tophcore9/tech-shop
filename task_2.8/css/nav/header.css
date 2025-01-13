@@ -9,6 +9,11 @@
   background-color: #E6E6E6;
 }
 
+@media (max-width: 775px) {
+  .header {
+    margin-bottom: 30px;
+  }
+}
 .header__path {
   color: #969595;
   font-family: "Montserrat", sans-serif;
