@@ -1,7 +1,6 @@
 .nav {
   height: 100px;
   width: 100%;
-  position: static;
   background-color: white;
   transition: height 0.2s 0.1s ease-out, background-color 0.1s ease-out;
 }
