@@ -6,6 +6,7 @@
   visibility: hidden;
   overflow-y: scroll;
   transition: visibility 0.5s ease, opacity 0.5s ease-out;
+  z-index: 2;
   position: fixed;
   top: 0;
   right: 0;
@@ -55,9 +56,13 @@
   margin-bottom: 35px;
   width: 16px;
   height: 16px;
-  background: url(../../images/icons/close-cart.svg) no-repeat center;
+  background: url(../../images/icons/close-black.svg) no-repeat center;
   background-size: cover;
   border: 0;
+  transition: background-image 0.2s ease-out, color 0.2s ease-out;
+}
+.cart-menu__close:hover {
+  background: url(../../images/icons/close-active.svg) no-repeat center;
 }
 
 .cart-menu__box {
