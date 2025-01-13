@@ -3,7 +3,7 @@
         "id": 0,
         "name": "Aula F3032",
         "price": 30,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/1/3/U0826113_big.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/1/3/U0826113_big_1734779464.jpg",
         "ratingStars": 3,
         "category": "Keyboards"
     },
@@ -17,9 +17,9 @@
     },
     {
         "id": 2,
-        "name": "ASUS Vivobook 15",
+        "name": "ASUS Vivobook Go 15",
         "price": 550,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/2/3/U0955123_big_1723656091.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/8/U0860008_big_1735265614.jpg",
         "ratingStars": 1,
         "category": "Laptops"
     },
@@ -27,7 +27,7 @@
         "id": 3,
         "name": "Hator Hypergang 2 Black (HTA-910)",
         "price": 45,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/5/3/U0843353_big.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/5/3/U0843353_big_1734982116.jpg",
         "ratingStars": 5,
         "category": "Headphones"
     },
@@ -35,7 +35,7 @@
         "id": 4,
         "name": "HyperX Cloud III Black-Red",
         "price": 110,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/3/3/U0843433_big.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/3/3/U0843433_big_1734999896.jpg",
         "ratingStars": 1,
         "category": "Headphones"
     },
@@ -43,7 +43,7 @@
         "id": 5,
         "name": "JBL Tune 720BT Black (JBLT720BTBLK)",
         "price": 550,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/7/1/U0790471_big.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/7/1/U0790471_big_1734536210.jpg",
         "ratingStars": 5,
         "category": "Headphones"
     },
@@ -59,7 +59,7 @@
         "id": 7,
         "name": "Hator Hyperpunk 2 Black (HTA-815)",
         "price": 35,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/5/8/U0918558_big_1712425323.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/4/4/U0856044_big_1735236627.jpg",
         "ratingStars": 5,
         "category": "Headphones"
     },
@@ -81,9 +81,9 @@
     },
     {
         "id": 10,
-        "name": "ASUS Vivobook Go 15 E1504GA-BQ114",
+        "name": "ASUS Vivobook 15 E1504GA-BQ114",
         "price": 430,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/8/U0860008_big_1696596360.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/2/4/U0955124_big_1736572489.jpg",
         "ratingStars": 3,
         "category": "Laptops"
     },
@@ -91,7 +91,7 @@
         "id": 11,
         "name": "Vinga Iron S150 (S150-123516512G)",
         "price": 515,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/4/U0833704_big_1698445223.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/4/U0833704_big_1735319893.jpg",
         "ratingStars": 2,
         "category": "Laptops"
     },
@@ -107,7 +107,7 @@
         "id": 13,
         "name": "MSI Thin GF63 (12VE-665XPL)",
         "price": 900,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/3/2/U0864732_big_1697372664.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/3/2/U0864732_big_1735312917.jpg",
         "ratingStars": 5,
         "category": "Laptops"
     },
@@ -115,7 +115,7 @@
         "id": 14,
         "name": "Samsung Galaxy A25 5G 8/256Gb",
         "price": 245,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/9/6/U0892796_big_1708405633.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/9/5/U0892795_big_1735835144.jpg",
         "ratingStars": 4,
         "category": "Smartphones"
     },
@@ -123,7 +123,7 @@
         "id": 15,
         "name": "Xiaomi Redmi Note 13 6/128GB Midnight",
         "price": 275,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/5/U0891005_big_1716408697.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/5/U0891005_big_1735676529.jpg",
         "ratingStars": 3,
         "category": "Smartphones"
     },
@@ -131,7 +131,7 @@
         "id": 16,
         "name": "Motorola Edge 50 NEO 8/256GB Grisaille",
         "price": 300,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/8/9/U0962989_big_1726576628.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/8/9/U0962989_big_1736641711.jpg",
         "ratingStars": 2,
         "category": "Smartphones"
     },
@@ -139,7 +139,7 @@
         "id": 17,
         "name": "Motorola G24 Power 8/256GB Glacier Blue",
         "price": 215,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/6/U0901506_big_1707455695.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/0/6/U0901506_big_1735718428.jpg",
         "ratingStars": 3,
         "category": "Smartphones"
     },
@@ -147,7 +147,7 @@
         "id": 18,
         "name": "Apple iPhone 15 128GB Black",
         "price": 1050,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/8/9/U0854689_big_1694678974.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/8/9/U0854689_big_1735230696.jpg",
         "ratingStars": 4,
         "category": "Smartphones"
     },
@@ -179,7 +179,7 @@
         "id": 22,
         "name": "Hator Starfall Rainbow",
         "price": 60,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/3/1/U0917631_big_1712148071.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/3/1/U0917631_big_1735949821.jpg",
         "ratingStars": 4,
         "category": "Keyboards"
     },
@@ -203,7 +203,7 @@
         "id": 25,
         "name": "Xiaomi Redmi Watch 5 Active",
         "price": 220,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/1/4/U0966014_big_1727878474.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/1/4/U0966014_big_1736669985.jpg",
         "ratingStars": 4,
         "category": "Watches"
     },
@@ -211,7 +211,7 @@
         "id": 26,
         "name": "Amazfit Pop 3R Black",
         "price": 550,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/6/9/U0851969_big_1694083627.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/7/1/U0851971_big_1735018506.jpg",
         "ratingStars": 5,
         "category": "Watches"
     },
@@ -219,23 +219,15 @@
         "id": 27,
         "name": "Xiaomi Redmi Watch 5 Lite",
         "price": 115,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/1/9/U0966019_big_1727584861.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/2/0/U0966020_big_1736670040.jpg",
         "ratingStars": 3,
-        "category": "Watches"
-    },
-    {
-        "id": 28,
-        "name": "Amazfit Pop 3R Silver",
-        "price": 265,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/7/0/U0851970_big_1693973532.jpg",
-        "ratingStars": 4,
         "category": "Watches"
     },
     {
         "id": 29,
         "name": "Huawei Band 9 Starry Black",
         "price": 315,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/2/1/U0927621_big_1714843114.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/2/1/U0927621_big_1736250757.jpg",
         "ratingStars": 3,
         "category": "Watches"
     },
@@ -243,7 +235,7 @@
         "id": 30,
         "name": "ASUS ROG Strix G16 G614JU-N3164",
         "price": 1500,
-        "imageUrl": "https://brain.com.ua/static/images/prod_img/8/3/U0898583_big_1706622407.jpg",
+        "imageUrl": "https://brain.com.ua/static/images/prod_img/8/3/U0898583_big_1735704493.jpg",
         "ratingStars": 5,
         "category": "Laptops"
     }

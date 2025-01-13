@@ -59,7 +59,6 @@ class CartMenuController {
         return Number(element.dataset.id);
     }
     showCart() {
-        this.hideNav();
         this._cartMenu.classList.add('show-cart-menu');
     }
     hideCart() {

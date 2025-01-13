@@ -77,7 +77,6 @@ class CartMenuController {
     }
 
     public showCart() {
-        this.hideNav();
         this._cartMenu.classList.add('show-cart-menu');
     }
 
