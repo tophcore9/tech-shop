@@ -1,10 +1,10 @@
 class ShopFilters {
-    private _items: Item[];
+    private _shopItems: Item[];
     private _cartItems: CartItem[];
     private _shopItemsRenderer: ShopItemsRenderer;
 
     private _topics = document.getElementsByClassName('topic-item__radio') as HTMLCollectionOf<HTMLInputElement>;
-    private _currentTopic = document.querySelector('.topics__item') as HTMLInputElement;
+    private _currentTopic = this._topics[0] as HTMLInputElement;
 
     private _priceRange = document.querySelector('.price__range') as HTMLInputElement;
     private _priceValue = document.querySelector('.price__value') as HTMLElement;
@@ -13,71 +13,15 @@ class ShopFilters {
     private _searchButton = document.querySelector('.search__button') as HTMLButtonElement;
 
     constructor(renderer: ShopItemsRenderer, cartItems: CartItem[]) {
-        this._shopItemsRenderer = renderer;
-        this._items = this._shopItemsRenderer.manager.items;
         this._cartItems = cartItems;
+        this._shopItemsRenderer = renderer;
+        this._shopItems = this._shopItemsRenderer.manager.items;
 
         this.initPriceRange();
 
-        this._searchButton.addEventListener('click', () => {
-            let filteredItems: Item[] = [];
-
-            if (this._currentTopic.value == '') {
-                this._shopItemsRenderer.updateRender();
-            } else if (this._currentTopic.value == 'All') {
-                filteredItems = Filtrator.filterByName(this._items, this._searchInput.value);
-                this._shopItemsRenderer.updateCustomRender(filteredItems);
-            } else {
-                filteredItems = Filtrator.filterByNameInCategory(
-                    this._items,
-                    this._searchInput.value,
-                    this._currentTopic.value,
-                );
-                this._shopItemsRenderer.updateCustomRender(filteredItems);
-            }
-        });
-
-        window.addEventListener('keypress', (event) => {
-            if (event.key == 'Enter') this._searchButton.click();
-        });
-
-        [...this._topics].forEach((topic) => {
-            topic.addEventListener('click', () => {
-                let filteredItems = this._shopItemsRenderer.manager.items;
-
-                if (topic.value != 'All') {
-                    filteredItems = Filtrator.filterByCategory(this._items, topic.value);
-                    this._shopItemsRenderer.updateCustomRender(filteredItems);
-                }
-
-                this._shopItemsRenderer.updateCustomRender(filteredItems);
-                this._shopItemsRenderer.setCheckboxes(this._cartItems);
-
-                this._currentTopic = topic;
-                this._priceRange.value = this._priceRange.max;
-                this.updatePriceValue();
-                
-                document.documentElement.scrollTop = 0;
-            });
-        });
-
-        document.querySelector('.price__range')?.addEventListener('input', this.updatePriceValue.bind(this));
-        document.querySelector('.price__range')?.addEventListener('change', () => {
-            let filteredItems: Item[] = [];
-
-            if (this._currentTopic.value != 'All') {
-                filteredItems = Filtrator.filterByPriceInCategory(
-                    this._items,
-                    Number(this._priceRange.value),
-                    this._currentTopic.value,
-                );
-            } else {
-                filteredItems = Filtrator.filterByPrice(this._items, Number(this._priceRange.value));
-            }
-
-            this._shopItemsRenderer.updateCustomRender(filteredItems);
-            this._shopItemsRenderer.setCheckboxes(this._cartItems);
-        });
+        this.initPriceRangeEvents();
+        this.initTopicSelectorEvents();
+        this.initSearchEvents();
     }
 
     private initPriceRange() {
@@ -89,5 +33,71 @@ class ShopFilters {
 
     private updatePriceValue() {
         this._priceValue.innerHTML = 'Value: $' + this._priceRange.value;
+    }
+
+    private initSearchEvents() {
+        this._searchButton.addEventListener('click', () => {
+            let filteredItems: Item[] = [];
+
+            if (this._currentTopic.value == '') {
+                this._shopItemsRenderer.updateRender();
+            } else if (this._currentTopic.value == 'All') {
+                filteredItems = Filtrator.filterByName(this._shopItemsRenderer.manager.items, this._searchInput.value);
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+            } else {
+                filteredItems = Filtrator.filterByNameInCategory(
+                    this._shopItems,
+                    this._searchInput.value,
+                    this._currentTopic.value,
+                );
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+            }
+        });
+
+        window.addEventListener('keypress', (event) => {
+            if (event.key == 'Enter') this._searchButton.click();
+        });
+    }
+
+    private initPriceRangeEvents() {
+        document.querySelector('.price__range')?.addEventListener('input', this.updatePriceValue.bind(this));
+        document.querySelector('.price__range')?.addEventListener('change', () => {
+            let filteredItems: Item[] = [];
+
+            if (this._currentTopic.value != 'All') {
+                filteredItems = Filtrator.filterByPriceInCategory(
+                    this._shopItems,
+                    Number(this._priceRange.value),
+                    this._currentTopic.value,
+                );
+            } else {
+                filteredItems = Filtrator.filterByPrice(this._shopItems, Number(this._priceRange.value));
+            }
+
+            this._shopItemsRenderer.updateCustomRender(filteredItems);
+            this._shopItemsRenderer.setCheckboxes(this._cartItems);
+        });
+    }
+
+    private initTopicSelectorEvents() {
+        [...this._topics].forEach((topic) => {
+            topic.addEventListener('click', () => {
+                let filteredItems = this._shopItemsRenderer.manager.items;
+
+                if (topic.value != 'All') {
+                    filteredItems = Filtrator.filterByCategory(this._shopItems, topic.value);
+                    this._shopItemsRenderer.updateCustomRender(filteredItems);
+                }
+
+                this._shopItemsRenderer.updateCustomRender(filteredItems);
+                this._shopItemsRenderer.setCheckboxes(this._cartItems);
+
+                this._currentTopic = topic;
+                this._priceRange.value = this._priceRange.max;
+                this.updatePriceValue();
+
+                document.documentElement.scrollTop = 0;
+            });
+        });
     }
 }

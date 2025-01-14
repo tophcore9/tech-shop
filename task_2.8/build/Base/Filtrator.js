@@ -1,9 +1,5 @@
 "use strict";
 class Filtrator {
-    // private _items: Item[];
-    // constructor(items: Item[]) {
-    //     this._items = items;
-    // }
     static filterByCategory(items, categoryName) {
         let filteredItems = [];
         items.forEach((item) => {

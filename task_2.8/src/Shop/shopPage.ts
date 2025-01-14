@@ -1,7 +1,5 @@
-(async () => {
-    const shopItemsManager = new ShopItemsManager();
-    await shopItemsManager.loadItemsFromJson();
+const shopItemsManager = new ShopItemsManager();
+shopItemsManager.loadItemsFromJson().then(() => {
     const shopItemsRenderer = new ShopItemsRenderer('shop-cards', shopItemsManager);
-
     const shopController = new ShopController(shopItemsRenderer, cartItemsRenderer);
-})();
+});

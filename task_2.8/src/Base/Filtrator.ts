@@ -1,10 +1,4 @@
 class Filtrator {
-    // private _items: Item[];
-
-    // constructor(items: Item[]) {
-    //     this._items = items;
-    // }
-
     public static filterByCategory(items: Item[], categoryName: string): Item[] {
         let filteredItems: Item[] = [];
 

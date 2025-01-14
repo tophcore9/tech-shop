@@ -1,22 +1,16 @@
-// ShopItemsManager
-//                  \
-//                    ShopItemsRenderer
-//                                     \
-//                                       ShopController <--
-//                                     /
-//                    CartItemsRenderer
-//                  /                  \
-// CartItemsManager                      CartMenuController
-
 class ShopController {
     private _shopItemsRenderer: ShopItemsRenderer;
     private _cartItemsRenderer: CartItemsRenderer;
-    private _shopFiltrator: ShopFilters;
 
     constructor(shopItemsRenderer: ShopItemsRenderer, cartItemsRenderer: CartItemsRenderer) {
         this._shopItemsRenderer = shopItemsRenderer;
         this._cartItemsRenderer = cartItemsRenderer;
-        this._shopFiltrator = new ShopFilters(this._shopItemsRenderer, this._cartItemsRenderer.manager.items);
+
+        this.init();
+    }
+
+    private init() {
+        new ShopFilters(this._shopItemsRenderer, this._cartItemsRenderer.manager.items);
 
         this._shopItemsRenderer.renderItems();
         this._shopItemsRenderer.setCheckboxes(this._cartItemsRenderer.manager.items);
@@ -25,6 +19,10 @@ class ShopController {
             this._shopItemsRenderer.setCheckboxes(this._cartItemsRenderer.manager.items);
         });
 
+        this.syncCheckboxesHandler();
+    }
+
+    private syncCheckboxesHandler() {
         this._shopItemsRenderer.wrapperClass.addEventListener('click', (event) => {
             const target = event.target as HTMLInputElement;
 
