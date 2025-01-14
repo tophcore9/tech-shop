@@ -1,0 +1,15 @@
+{
+  "name": "task_2.8",
+  "version": "1.0.0",
+  "description": "Shop website",
+  "main": "main.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.foxminded.ua/foxstudent107675/type-script-paziura/-/tree/task_2.8/task_2.8"
+  },
+  "author": "Oleksii Paziura",
+  "license": "ISC"
+}
