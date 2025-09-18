@@ -6,6 +6,10 @@ This is a clean and modern front-end layout for a technology-focused e-commerce 
 
 ## 🚀 Getting Started
 
+### Preview
+
+https://github.com/user-attachments/assets/c6a41954-7744-4195-b8b6-3ac05de80525
+
 ### Installation
 
 1.  **Clone the repository:**
@@ -57,4 +61,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## 👨‍💻 Author
 
-* **Oleksii Paziura (tophcore9)** - [@tophcore9](https://github.com/tophcore9)
+* **Oleksii Paziura** - [@tophcore9](https://github.com/tophcore9)
