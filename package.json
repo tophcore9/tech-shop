@@ -2,7 +2,7 @@
   "name": "task_2.8",
   "version": "1.0.0",
   "description": "Shop website",
-  "main": "main.html",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
